@@ -48,7 +48,7 @@ var loginUserRequest = function (){
 };
 
 var updateUserRequest = function(){
-  vat updateDate = {
+  vat updateData = {
     username: $('#update-email').val(),
     password: $('#update-password').val(),
     firstName: $('#update-firstName').val(),
@@ -60,7 +60,7 @@ var updateUserRequest = function(){
     type: 'POST',
     contentType: 'application/json',
     processData: false,
-    data: JSON.stringify(loginData)
+    data: JSON.stringify(updateData)
   })
   .done(function(data){
     // back to the homepage, keeping the session alive
@@ -70,8 +70,33 @@ var updateUserRequest = function(){
   });
 };
 
+var changePasswordRequest = function(){
+  var passwordData = {
+    username: $('#update-email').val(),
+    oldPassword: $('#update-oldPassword').val(),
+    newPassword: $('#update-newPassword').val()
+  }
+  $.ajax({
+    url: sa + '/users/', // CLARIFY IT
+    type: 'POST',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(passwordData)
+  })
+  .done(function(data){
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
 
-// changePasswordRequest, , deleteUserRequest, , logoutUserRequest
+var deleteUserRequest = function (){
+
+};
+
+
+// logoutUserRequest
 // indexFilesRequest, deleteFileRequest, updateFileRequest, uploadFileRequest
 
 // stretch: showFileRequest
