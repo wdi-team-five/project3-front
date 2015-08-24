@@ -8,4 +8,8 @@ $(document).ready(function(){
         $("#login-modal").modal();
     });
 
+    $('#register-button').on('click', function(){
+      registerRequest();
+    });
+
 }); // end document.ready
