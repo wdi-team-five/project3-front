@@ -1,0 +1,68 @@
+body  {
+  text-align: center;
+  color: #5a5a5a;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+/* navbar */
+
+/* position container around navbar */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* change padding for smaller screen view */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  /* Navbar positioning */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+/* main body */
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.centered {
+   text-align: center;
+   font-size: 0;
+}
+.centered > div {
+   float: none;
+   display: inline-block;
+   text-align: center;
+   font-size: 13px;
+}
