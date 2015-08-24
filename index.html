@@ -29,7 +29,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Login</a></li>
+                <li><a id="show-login-modal">Login</a></li>
                 <li><a id="show-register-modal">Register</a></li>
                 <li><a href="#contact">Documents</a></li>
               </ul>
@@ -55,6 +55,37 @@
         </div>
       </div>
     </div> <!-- end large image area -->
+
+    <!-- login modal -->
+    <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button id="login-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Sign In</h4>
+          </div>
+
+          <div class="modal-body">
+            <form class="form col-sm-12 center-block">
+              <div class="form-group">
+                <label for="login-email">Email: </label><input type="text" class="form-control input-md" placeholder="Email address" id="login-email">
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password: </label><input type="password" class="form-control input-md" placeholder="Password" id="login-password">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <div class="alert alert-danger hide text-left" role="alert" id="login-alert">
+              <p>We were unable to locate an account with that email address and password combination. Please try again.</p>
+            </div>
+            <button id="login-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" class="btn btn-primary" id="login-btn">Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end login modal -->
 
     <!-- register modal -->
     <div id="register-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
@@ -90,8 +121,10 @@
           </div>
 
           <div class="modal-footer">
-          <div class="alert alert-danger hide text-left" role="alert" id="register-alert"></div>
-            <button id="sign-in-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+          <div class="alert alert-danger hide text-left" role="alert" id="register-alert">
+            <p>We were unable to create your account. Please check you have filled in all areas and try again.</p>
+          </div>
+            <button id="register-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
             <button type="button" class="btn btn-primary" id="register-btn">Register</button>
           </div>
         </div>

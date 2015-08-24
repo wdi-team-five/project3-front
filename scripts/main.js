@@ -4,4 +4,8 @@ $(document).ready(function(){
         $("#register-modal").modal();
     });
 
+    $("#show-login-modal").click(function(){
+        $("#login-modal").modal();
+    });
+
 }); // end document.ready
