@@ -56,19 +56,13 @@ body  {
   margin: 0 auto;
 }
 
-/* left sidebar */
-
-.left {
+.centered {
+   text-align: center;
+   font-size: 0;
 }
-
-/* center */
-
-.center {
+.centered > div {
+   float: none;
+   display: inline-block;
+   text-align: center;
+   font-size: 13px;
 }
-
-/* right sidebar */
-
-.aside {
-}
-
-/* footer */
