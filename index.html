@@ -7,6 +7,7 @@
     <title>CMS</title> <!-- Change -->
     <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
 
 <!-- navbar -->
@@ -28,8 +29,9 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">Login</a></li>
+                <li><a id="show-register-modal">Register</a></li>
+                <li><a href="#contact">Documents</a></li>
               </ul>
             </div>
           </div>
@@ -53,6 +55,48 @@
         </div>
       </div>
     </div> <!-- end large image area -->
+
+    <!-- register modal -->
+    <div id="register-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button id="register-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Register</h4>
+          </div>
+
+          <div class="modal-body">
+            <form class="form col-sm-12 center-block">
+              <div class="form-group">
+              <label for="register-email">Email: </label><input type="text" class="form-control input-md" placeholder="Email address" id="register-email">
+              </div>
+              <div class="form-group">
+                <label for="register-password">Password: </label><input type="password" class="form-control input-md" placeholder="Password" id="register-password">
+              </div>
+              <div class="form-group">
+                <label for="register-confirm-password">Confirm Password: </label><input type="password" class="form-control input-md" placeholder="Confirm password" id="register-confirm-password">
+              </div>
+              <div class="form-group" id="firstName-options">
+                <label for="register-firstName">First Name: </label><input type="text" class="form-control input-md" placeholder="First Name" id="register-firstName">
+              </div>
+              <div class="form-group" id="lastName-options">
+                <label for="register-lastName">Last Name: </label><input type="text" class="form-control input-md" placeholder="Last Name" id="register-lastName">
+              </div>
+              <div class="form-group" id="company-options">
+                <label for="register-company">Company: </label><input type="text" class="form-control input-md" placeholder="Company (optional)" id="register-company">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+          <div class="alert alert-danger hide text-left" role="alert" id="register-alert"></div>
+            <button id="sign-in-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" class="btn btn-primary" id="register-btn">Register</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end register modal -->
 
     <div class="container marketing">
 
@@ -86,7 +130,7 @@
 
     </div><!-- end container -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
