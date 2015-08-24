@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +7,7 @@
     <title>CMS</title> <!-- Change -->
     <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
 
 <!-- navbar -->
@@ -28,9 +28,12 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a id="show-login-modal">Login</a></li>
+                <li><a id="show-register-modal">Register</a></li>
+                <li><a id="logout-button">Logout</a></li>
+                <li><a id="profile-page" href="profile.html">Profile</a></li>
+                <li><a id="document-list-page" href="list_page.html">Documents</a></li>
               </ul>
             </div>
           </div>
@@ -38,7 +41,7 @@
 
       </div>
     </div>
-    <!-- end header -->
+    <!-- end navbar -->
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
@@ -54,6 +57,81 @@
         </div>
       </div>
     </div> <!-- end large image area -->
+
+    <!-- login modal -->
+    <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button id="login-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+            <h4 class="modal-title">Sign In</h4>
+          </div>
+
+          <div class="modal-body">
+            <form class="form col-sm-12 center-block">
+              <div class="form-group">
+                <label for="login-email">Email: </label><input type="text" class="form-control input-md" placeholder="Email address" id="login-email">
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password: </label><input type="password" class="form-control input-md" placeholder="Password" id="login-password">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <div class="alert alert-danger hide text-left" role="alert" id="login-alert">
+              <p>We were unable to locate an account with that email address and password combination. Please try again.</p>
+            </div>
+            <button id="login-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" class="btn btn-primary" id="login-btn">Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end login modal -->
+
+    <!-- register modal -->
+    <div id="register-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button id="register-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+            <h4 class="modal-title">Register</h4>
+          </div>
+
+          <div class="modal-body">
+            <form class="form col-sm-12 center-block">
+              <div class="form-group">
+              <label for="register-email">Email: </label><input type="text" class="form-control input-md" placeholder="Email address" id="register-email">
+              </div>
+              <div class="form-group">
+                <label for="register-password">Password: </label><input type="password" class="form-control input-md" placeholder="Password" id="register-password">
+              </div>
+              <div class="form-group">
+                <label for="register-confirm-password">Confirm Password: </label><input type="password" class="form-control input-md" placeholder="Confirm password" id="register-confirm-password">
+              </div>
+              <div class="form-group" id="firstName-options">
+                <label for="register-firstName">First Name: </label><input type="text" class="form-control input-md" placeholder="First Name" id="register-firstName">
+              </div>
+              <div class="form-group" id="lastName-options">
+                <label for="register-lastName">Last Name: </label><input type="text" class="form-control input-md" placeholder="Last Name" id="register-lastName">
+              </div>
+              <div class="form-group" id="company-options">
+                <label for="register-company">Company: </label><input type="text" class="form-control input-md" placeholder="Company (optional)" id="register-company">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+          <div class="alert alert-danger hide text-left" role="alert" id="register-alert">
+            <p>We were unable to create your account. Please check you have filled in all areas and try again.</p>
+          </div>
+            <button id="register-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" class="btn btn-primary" id="register-btn">Register</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end register modal -->
 
     <div class="container marketing">
 
@@ -87,7 +165,7 @@
 
     </div><!-- end container -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
