@@ -7,6 +7,7 @@
   <title>CMS</title> <!-- Change -->
   <link rel="stylesheet" type="text/css" href="stylesheets/profile_style.css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <!-- navbar -->
@@ -27,9 +28,12 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a id="show-login-modal">Login</a></li>
+                <li><a id="show-register-modal">Register</a></li>
+                <li><a id="logout-button">Logout</a></li>
+                <li><a id="profile-page" href="profile.html">Profile</a></li>
+                <li><a id="document-list-page" href="list_page.html">Documents</a></li>
               </ul>
             </div>
           </div>
@@ -43,29 +47,30 @@
     <div class="container marketing">
       <div class="row">
 
-          <!-- top row -->
-          <div class="center col-md-12">
+          <!-- profile information left div -->
+          <div class="aside col-md-6">
 
           </div>
-          <!-- end top row  -->
-      </div> <!-- end row -->
+          <!-- end left  -->
 
-      <div class="row">
-        <!--  left div -->
+          <!--  profile buttons left div -->
         <div class="left col-md-6">
 
         </div>
         <!-- end left -->
 
-        <!-- right sidebar -->
-        <div class="aside col-md-6">
+      </div> <!-- end row -->
+
+      <div class="row">
+
+        <!-- document right sidebar -->
+        <div class="left col-md-6">
         </div>
-        <!-- end right sidebar -->
+        <!-- end document sidebar -->
       </div> <!-- end row -->
     </div>
     <!-- end main body -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
