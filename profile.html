@@ -7,6 +7,7 @@
   <title>CMS</title> <!-- Change -->
   <link rel="stylesheet" type="text/css" href="stylesheets/profile_style.css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
@@ -24,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="index.html">Project name</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -32,8 +33,7 @@
                 <li><a id="show-login-modal">Login</a></li>
                 <li><a id="show-register-modal">Register</a></li>
                 <li><a id="logout-button">Logout</a></li>
-                <li><a id="profile-page" href="profile.html">Profile</a></li>
-                <li><a id="document-list-page" href="list_page.html">Documents</a></li>
+                <li><a id="profile-show-button">Profile</a></li>
               </ul>
             </div>
           </div>
@@ -53,9 +53,7 @@
               <div class="panel-heading">
                 <h3 class="panel-title">Profile Information</h3>
               </div>
-              <div class="panel-body">
-                <p>Profile Information goes here</p>
-              </div> <!-- end panel body -->
+              <div id="display-profile-information" class="panel-body"></div> <!-- end panel body -->
             </div>
           </div>
         <!-- end left profile info  -->
@@ -66,13 +64,13 @@
             <div class="panel-heading">
               <h3 class="panel-title">Document List</h3>
             </div>
-            <div class="panel-body">
-              <p>Document index will go here</p>
-            </div> <!-- end panel body -->
+            <div id="display-document-index" class="panel-body"></div> <!-- end panel body -->
           </div>
         </div>
         <!-- end document sidebar -->
+      </div>
 
+      <div class="row">
         <!--  profile buttons left div -->
         <div class="left col-md-6">
           <div class="panel panel-primary">
@@ -84,15 +82,59 @@
               <p><button id="profile-update" type="button" class="btn btn-primary">Edit Profile</button>
               <!-- Profile Delete -->
               <button id="profile-delete" type="button" class="btn btn-primary">Delete Profile</button></p>
+              <!-- AWS Upload Form -->
+              <form id="upload-form" enctype="multipart/form-data" accept-charset="utf-8">
+                <label for="caption">Caption: </label>
+                <input type="text" name="caption" id="caption" value="" placeholder="File Caption"><br>
+                <input type="file" name="file" id="file"> <!-- center me -->
+                <button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
+              </form>
             </div> <!-- end panel body -->
           </div>
         </div>
-        <!-- end left -->
+        <!-- end profile buttons left -->
+      </div>
+
+      <div class="row">
+        <!--  tag cloud left div -->
+        <div class="left col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Tag Cloud</h3>
+            </div>
+            <div id="display-tag-index" class="panel-body"></div> <!-- end panel body -->
+          </div>
+        </div>
+        <!-- end left tag -->
 
       </div> <!-- end row -->
 
+      <!-- <button type="button" id="profile-show-button">Button yo</button> -->
+
+      <script id="profile-show-template" type="text/x-handlebars-template">
+        <h4>{{firstName}} {{lastName}}</h4>
+        <p>Email: {{username}}</p>
+        <p>Company: {{company}}</p>
+      </script>
+
+      <script id="tag-index-template" type="text/x-handlebars-template">
+          {{#each tags}}
+          <p class="tag-cloud"><a href="#">{{name}}</a></p>
+          {{/each}}
+      </script>
+
+      <script id="document-index-template" type="text/x-handlebars-template">
+        {{#each documents}}
+          <li>
+            <p>{{name}}, {{type}}</p>
+          </li>
+        {{/each}}
+      </script>
+
     </div> <!-- end main body -->
 
+    <script type="text/javascript" src="scripts/ajax.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

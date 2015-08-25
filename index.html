@@ -7,6 +7,7 @@
     <title>CMS</title> <!-- Change -->
     <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
 
@@ -24,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="index.html">Project name</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -32,8 +33,7 @@
                 <li><a id="show-login-modal">Login</a></li>
                 <li><a id="show-register-modal">Register</a></li>
                 <li><a id="logout-button">Logout</a></li>
-                <li><a id="profile-page" href="profile.html">Profile</a></li>
-                <li><a id="document-list-page" href="list_page.html">Documents</a></li>
+                <li><a href="profile.html">Profile</a></li>
               </ul>
             </div>
           </div>
@@ -83,7 +83,7 @@
               <p>We were unable to locate an account with that email address and password combination. Please try again.</p>
             </div>
             <button id="login-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
-            <button type="button" class="btn btn-primary" id="login-btn">Sign In</button>
+            <button type="button" class="btn btn-primary" id="login-button">Sign In</button>
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@
             <p>We were unable to create your account. Please check you have filled in all areas and try again.</p>
           </div>
             <button id="register-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
-            <button type="button" class="btn btn-primary" id="register-btn">Register</button>
+            <button type="button" class="btn btn-primary" id="register-button">Register</button>
           </div>
         </div>
       </div>
@@ -165,6 +165,7 @@
 
     </div><!-- end container -->
 
+    <script type="text/javascript" src="scripts/ajax.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
