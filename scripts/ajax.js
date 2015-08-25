@@ -130,8 +130,25 @@ var showFilesByTagRequest = function (tagId){
   });
 };
 
+var indexFilesRequest = function (){
+  $.ajax({
+    url: sa + '/files', // CLARIFY IT
+    type: 'GET',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    indexDocumentForm(data.files);
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+
 // logoutUserRequest
-// indexFilesRequest, deleteFileRequest, updateFileRequest, uploadFileRequest
+// , deleteFileRequest, updateFileRequest, uploadFileRequest
 
 // stretch: showFileRequest
 
@@ -155,7 +172,7 @@ var testProfileData = {
 //   name: "data.tagData.tagName"
 // };
 
-var testTagData = {[
+var testTagData = [{
   tagId: "34",
   name: "work"
 }, {
@@ -166,7 +183,18 @@ var testTagData = {[
   name: "my little pony"
 ]};
 
-var testFileData = {
-  tagName: "data.fileData.tagName",
-
-};
+var testFileData = [
+  // tagName: "data.fileData.tagName",
+  {
+    name: "my secret file 1",
+    type: "video/stream"
+  },
+  {
+    name: "my secret file 2",
+    type: "video/stream"
+  },
+  {
+    name: "my secret file 2",
+    type: "zip/archive"
+  }
+];
