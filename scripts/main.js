@@ -16,10 +16,6 @@ $(document).ready(function(){
       loginUserRequest();
     });
 
-  // $(".tag-cloud").on('click', 'h4 > a', function(event){
-  //   showFilesByTagRequest($(this).id);
-  // });
-
 }); // end document.ready
 
  var showProfileForm = function (data) {
@@ -43,4 +39,9 @@ $('#profile-show-button').on('click', function(event){
   showProfileForm(testProfileData); // CHANGE TO DATA
   indexTagCloud({tags: testTagData});
   indexDocumentForm({documents: testFileData});
+});
+
+$(".tag-cloud").on('click', 'h4 > a', function(event){
+  event.preventDefault();
+  showFilesByTagRequest($(this).id);
 });
