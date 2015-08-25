@@ -19,6 +19,7 @@ var registerUserRequest = function (){
   })
   .done(function(data) {
     // $('#result').html(JSON.stringify(data, null, 2));
+    $('#register-modal').hide();
     $("#login-modal").modal();
   })
   .fail(function(jqxhr) {
@@ -48,7 +49,7 @@ var loginUserRequest = function (){
 };
 
 var updateUserRequest = function(){
-  vat updateData = {
+  var updateData = {
     username: $('#update-email').val(),
     password: $('#update-password').val(),
     firstName: $('#update-firstName').val(),
