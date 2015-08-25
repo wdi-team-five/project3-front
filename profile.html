@@ -33,7 +33,7 @@
                 <li><a id="show-login-modal">Login</a></li>
                 <li><a id="show-register-modal">Register</a></li>
                 <li><a id="logout-button">Logout</a></li>
-                <li><a id="profile-page">Profile</a></li>
+                <li><a id="profile-show-button">Profile</a></li>
                 <li><a id="document-list-page" href="list_page.html">Documents</a></li>
               </ul>
             </div>
@@ -69,7 +69,9 @@
           </div>
         </div>
         <!-- end document sidebar -->
+      </div>
 
+      <div class="row">
         <!--  profile buttons left div -->
         <div class="left col-md-6">
           <div class="panel panel-primary">
@@ -81,10 +83,17 @@
               <p><button id="profile-update" type="button" class="btn btn-primary">Edit Profile</button>
               <!-- Profile Delete -->
               <button id="profile-delete" type="button" class="btn btn-primary">Delete Profile</button></p>
+              <!-- AWS Upload Form -->
+              <form id="upload-form" enctype="multipart/form-data" accept-charset="utf-8">
+                <label for="caption">Caption: </label>
+                <input type="text" name="caption" id="caption" value="" placeholder="File Caption"><br>
+                <input type="file" name="file" id="file"> <!-- center me -->
+                <button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
+              </form>
             </div> <!-- end panel body -->
           </div>
         </div>
-        <!-- end left -->
+        <!-- end profile buttons left -->
       </div>
 
       <div class="row">
@@ -101,7 +110,7 @@
 
       </div> <!-- end row -->
 
-      <button type="button" id="profile-show-button">Button yo</button>
+      <!-- <button type="button" id="profile-show-button">Button yo</button> -->
 
       <script id="profile-show-template" type="text/x-handlebars-template">
         <h4>{{firstName}} {{lastName}}</h4>
