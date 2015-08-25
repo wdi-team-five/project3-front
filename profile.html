@@ -53,8 +53,12 @@
               <div class="panel-heading">
                 <h3 class="panel-title">Profile Information</h3>
               </div>
-              <div class="panel-body">
-                <p>Profile Information goes here</p>
+              <div id="display-profile-information" class="panel-body">
+                <script id="profile-show-template" type="text/x-handlebars-template">
+                    <h4>{{firstName}} {{lastName}}</h4>
+                    <p>Email: {{username}}</p>
+                    <p>Company: {{company}}</p>
+                </script>
               </div> <!-- end panel body -->
             </div>
           </div>
@@ -66,8 +70,15 @@
             <div class="panel-heading">
               <h3 class="panel-title">Document List</h3>
             </div>
-            <div class="panel-body">
-              <p>Document index will go here</p>
+            <div id="display-document-index" class="panel-body">
+              <script id="document-index-template" type="text/x-handlebars-template">
+                {{#each documents}}
+                  <li>
+                    <h4>{{name}}</h4>
+                    <p>{{description}}</p>
+                  </li>
+                {{/each}}
+              </script>
             </div> <!-- end panel body -->
           </div>
         </div>
@@ -88,11 +99,32 @@
           </div>
         </div>
         <!-- end left -->
+      </div>
+
+      <div class="row">
+        <!--  tag cloud left div -->
+        <div class="left col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Tag Cloud</h3>
+            </div>
+            <div id="display-tag-index" class="panel-body">
+              <script id="tag-index-template" type="text/x-handlebars-template">
+                  {{#each tags}}
+                    <p class="tag-cloud"><a href="#">{{name}}</a></p>
+                  {{/each}}
+              </script>
+            </div> <!-- end panel body -->
+          </div>
+        </div>
+        <!-- end left tag -->
 
       </div> <!-- end row -->
 
     </div> <!-- end main body -->
 
+    <script type="text/javascript" src="scripts/ajax.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
