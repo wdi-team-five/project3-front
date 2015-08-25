@@ -16,14 +16,15 @@ $(document).ready(function(){
       loginUserRequest();
     });
 
-    $('#profile-page').on('click', function(){
-      showProfileRequest();
-    });
+  // $(".tag-cloud").on('click', 'h4 > a', function(event){
+  //   showFilesByTagRequest($(this).id);
+  // });
 
+}); // end document.ready
 
-  var showProfileForm = function (data) {
+ var showProfileForm = function (data) {
     var profileShowTemplate = Handlebars.compile($('#profile-show-template').html());
-    $("#display-profile-information").html(profileShowTemplate(data));
+    $('#display-profile-information').html(profileShowTemplate(data));
   };
 
   var indexTagCloud = function (data) {
@@ -31,8 +32,15 @@ $(document).ready(function(){
     $('#display-tag-index').html(tagIndexTemplate(data));
   };
 
-  $(".tag-cloud").on('click', 'h4 > a', function(event){
-    showFilesByTagRequest($(this).id);
-  });
+  var indexDocumentForm = function (data) {
+    var documentIndexTemplate = Handlebars.compile($('#document-index-template').html());
+    $('#display-document-index').html(documentIndexTemplate(data));
+  };
 
-}); // end document.ready
+$('#profile-show-button').on('click', function(event){
+  event.preventDefault();
+  // window.location.href = "profile.html";
+  showProfileForm(testProfileData); // CHANGE TO DATA
+  indexTagCloud({tags: testTagData});
+  indexDocumentForm({documents: testFileData});
+});

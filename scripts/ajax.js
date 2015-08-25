@@ -140,7 +140,7 @@ var showFilesByTagRequest = function (tagId){
 //   firstName: "data.profileData.firstName",
 //   lastName: "data.profileData.lastName",
 //   company: "data.profileData.company"
-};
+// };
 
 
 var testProfileData = {
@@ -155,7 +155,7 @@ var testProfileData = {
 //   name: "data.tagData.tagName"
 // };
 
-var testTagData = {[
+var testTagData = [{
   tagId: "34",
   name: "work"
 }, {
@@ -164,7 +164,7 @@ var testTagData = {[
 }, {
   tagId: "36",
   name: "my little pony"
-]};
+}];
 
 var testFileData = {
   tagName: "data.fileData.tagName",
