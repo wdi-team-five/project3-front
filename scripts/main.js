@@ -9,7 +9,7 @@ $(document).ready(function(){
     });
 
     $('#register-button').on('click', function(){
-      registerRequest();
+      registerUserRequest();
     });
 
 }); // end document.ready

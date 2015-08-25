@@ -48,7 +48,7 @@ var loginUserRequest = function (){
 };
 
 var updateUserRequest = function(){
-  vat updateData = {
+  var updateData = {
     username: $('#update-email').val(),
     password: $('#update-password').val(),
     firstName: $('#update-firstName').val(),
