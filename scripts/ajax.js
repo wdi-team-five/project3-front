@@ -41,6 +41,7 @@ var loginUserRequest = function (){
     data: JSON.stringify(loginData)
   })
   .done(function(data){
+    $("#login-modal").hide();
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
@@ -96,8 +97,76 @@ var deleteUserRequest = function (){
 
 };
 
+var showProfileRequest = function (){
+  $.ajax({
+    url: sa + '/profile',
+    type: 'GET',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    showProfileForm(testProfileData); // CHANGE TO DATA
+    indexTagCloud(testTagData); // CHANGE TO DATA
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var showFilesByTagRequest = function (tagId){
+  $.ajax({
+    url: sa + '/tag/' + tagId, // CLARIFY IT
+    type: 'GET',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
 
 // logoutUserRequest
 // indexFilesRequest, deleteFileRequest, updateFileRequest, uploadFileRequest
 
 // stretch: showFileRequest
+
+// var testProfileData = {
+//   username: "data.profileData.username",
+//   firstName: "data.profileData.firstName",
+//   lastName: "data.profileData.lastName",
+//   company: "data.profileData.company"
+};
+
+
+var testProfileData = {
+  username: "cara@cara.com",
+  firstName: "Cara",
+  lastName: "Clarke",
+  company: "Google Inc."
+};
+
+// var testTagData = {
+//   tagId: "data.tagData.tagId",
+//   name: "data.tagData.tagName"
+// };
+
+var testTagData = {[
+  tagId: "34",
+  name: "work"
+}, {
+  tagId: "35",
+  name: "hobby"
+}, {
+  tagId: "36",
+  name: "my little pony"
+]};
+
+var testFileData = {
+  tagName: "data.fileData.tagName",
+
+};
