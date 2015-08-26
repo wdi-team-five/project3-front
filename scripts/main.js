@@ -43,5 +43,5 @@ $('#profile-show-button').on('click', function(event){
 
 $(".tag-cloud").on('click', 'h4 > a', function(event){
   event.preventDefault();
-  showFilesByTagRequest($(this).id);
+  showElementsByTagRequest($(this).id);
 });
