@@ -9,7 +9,7 @@ h1 {
   line-height: 65px;
 }
 
-h2 {
+h2, h3 {
   font-family: 'Vollkorn', Georgia, Times, serif;
   font-weight: bold;
 }
@@ -18,6 +18,7 @@ h2 {
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
   color: #ACF0F2;
   font-size: 45px;
+  font-style: italic;
 }
 
 p {
@@ -148,4 +149,15 @@ p {
   font-size: 90%;
   font-weight: medium;
   text-align: center;
+}
+
+/* profile page row settings */
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.marketing {
+  margin-top: 100px;
 }
