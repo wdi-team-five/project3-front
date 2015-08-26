@@ -1,4 +1,5 @@
 'use strict';
+var username;
 var sa = 'http://localhost:8000';
 
 
@@ -59,7 +60,7 @@ var updateUserRequest = function(){
   };
   $.ajax({
     url: sa + '/users/', // CLARIFY IT
-    type: 'POST',
+    type: 'PUT',
     contentType: 'application/json',
     processData: false,
     data: JSON.stringify(updateData)
@@ -105,6 +106,7 @@ var showProfileRequest = function (){
     processData: false
   })
   .done(function(data){
+    username = data.profileData.username;
     showProfileForm(testProfileData); // CHANGE TO DATA
     indexTagCloud(testTagData); // CHANGE TO DATA
     // back to the homepage, keeping the session alive
@@ -114,25 +116,9 @@ var showProfileRequest = function (){
   });
 };
 
-var showFilesByTagRequest = function (tagId){
+var showElementsByTagRequest = function (tagId){
   $.ajax({
     url: sa + '/tag/' + tagId, // CLARIFY IT
-    type: 'GET',
-    contentType: 'application/json',
-    processData: false
-  })
-  .done(function(data){
-
-    // back to the homepage, keeping the session alive
-  })
-  .fail(function(jqxhr) {
-    console.error(jqxhr);
-  });
-};
-
-var indexFilesRequest = function (){
-  $.ajax({
-    url: sa + '/files', // CLARIFY IT
     type: 'GET',
     contentType: 'application/json',
     processData: false
@@ -146,9 +132,77 @@ var indexFilesRequest = function (){
   });
 };
 
+var showElementsRequest = function (elementId){
+  $.ajax({
+    url: sa + '/elements/' + elementId, // CLARIFY IT
+    type: 'GET',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    indexDocumentForm(data.files);
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var deleteElementRequest = function (elementId){
+  $.ajax({
+    url: sa + '/elements/' + elementId, // CLARIFY IT
+    type: 'DELETE',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    indexDocumentForm(data.files);
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var updateElementRequest = function (elementId){
+  $.ajax({
+    url: sa + '/elements/' + elementId, // CLARIFY IT
+    type: 'PUT',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var uploadElementRequest = function (???){
+  $.ajax({
+    url: sa + '/element/' + elementId, // CLARIFY IT
+    type: 'POST',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+
 
 // logoutUserRequest
-// , deleteFileRequest, updateFileRequest, uploadFileRequest
+// , , ,
+// TAGS CRUD
+//
+// PROFILE U
 
 // stretch: showFileRequest
 
@@ -183,18 +237,18 @@ var testTagData = [{
   name: "my little pony"
 }];
 
-var testFileData = [
+var testElementData = [
   // tagName: "data.fileData.tagName",
   {
     name: "my secret file 1",
-    type: "video/stream"
+    directory: true
   },
   {
     name: "my secret file 2",
-    type: "video/stream"
+    directory: false
   },
   {
     name: "my secret file 2",
-    type: "zip/archive"
+    directory: false
   }
 ];
