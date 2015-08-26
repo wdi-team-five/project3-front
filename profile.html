@@ -126,7 +126,15 @@
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each documents}}
           <li>
-            <p>{{name}}, {{type}}</p>
+            {{#if directory}}
+              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            {{/if}}
+            {{#if username !== name}}
+              <button type="button" id="return-root">Return Home</button> // JS function
+            {{/if}}
+            <p>{{name}}</p>
           </li>
         {{/each}}
       </script>
