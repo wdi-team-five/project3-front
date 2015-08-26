@@ -19,6 +19,7 @@ var registerUserRequest = function (){
     data: JSON.stringify(registerData)
   })
   .done(function(data) {
+    // NEED BACK: email
     // $('#result').html(JSON.stringify(data, null, 2));
     $('#register-modal').hide();
     $("#login-modal").modal();
@@ -42,6 +43,7 @@ var loginUserRequest = function (){
     data: JSON.stringify(loginData)
   })
   .done(function(data){
+    // NEED BACK: ??
     $("#login-modal").hide();
     // back to the homepage, keeping the session alive
   })
@@ -66,6 +68,7 @@ var updateUserRequest = function(){
     data: JSON.stringify(updateData)
   })
   .done(function(data){
+    // NEED BACK: ??
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
@@ -106,6 +109,7 @@ var showProfileRequest = function (){
     processData: false
   })
   .done(function(data){
+    // NEED BACK: username, profile info, elementList
     username = data.profileData.username;
     showProfileForm(testProfileData); // CHANGE TO DATA
     indexTagCloud(testTagData); // CHANGE TO DATA
@@ -124,6 +128,7 @@ var showElementsByTagRequest = function (tagId){
     processData: false
   })
   .done(function(data){
+    // NEED BACK: elements list according to tag
     indexDocumentForm(data.files);
     // back to the homepage, keeping the session alive
   })
@@ -140,6 +145,7 @@ var showElementsRequest = function (elementId){
     processData: false
   })
   .done(function(data){
+    // NEED BACK: get list files within elementId (directory)
     indexDocumentForm(data.files);
     // back to the homepage, keeping the session alive
   })
@@ -156,6 +162,7 @@ var deleteElementRequest = function (elementId){
     processData: false
   })
   .done(function(data){
+    // NEED BACK: ??
     indexDocumentForm(data.files);
     // back to the homepage, keeping the session alive
   })
@@ -172,7 +179,7 @@ var updateElementRequest = function (elementId){
     processData: false
   })
   .done(function(data){
-
+    // NEED BACK: nothing, but we're gonna call index of elements
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
@@ -188,7 +195,7 @@ var uploadElementRequest = function (???){
     processData: false
   })
   .done(function(data){
-
+    // NEED BACK: nothing, but we're gonna call index of elements
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
@@ -204,6 +211,7 @@ var deleteTagRequest = function (tagId){
     processData: false
   })
   .done(function(data){
+    // NEED BACK: nothing, but we're gonna call index of tags
     indexTagCloud(data);
     // back to the homepage, keeping the session alive
   })
@@ -224,6 +232,7 @@ var createTagRequest = function (){
     data: JSON.stringify(tagData)
   })
   .done(function(data){
+    // NEED BACK: nothing, but we're gonna call index of tags
     indexTagCloud(data);
     // back to the homepage, keeping the session alive
   })
@@ -244,6 +253,7 @@ var updateTagRequest = function (tagId){
     data: JSON.stringify(tagData)
   })
   .done(function(data){
+    // NEED BACK: nothing, but we're gonna call index of tags
     indexTagCloud(data);
     // back to the homepage, keeping the session alive
   })
