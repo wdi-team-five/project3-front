@@ -121,9 +121,13 @@
       </script>
 
       <script id="tag-index-template" type="text/x-handlebars-template">
-          {{#each tags}}
-          <p class="tag-cloud"><a href="#">{{name}}</a></p>
-          {{/each}}
+        {{#grouped_each 5 tags}}
+          <div class="row">
+            {{#each this}}
+              <a class="tag-cloud" href="#">{{name}}</a>
+            {{/each}}
+          </div>
+        {{/grouped_each}}
       </script>
 
       <script id="document-index-template" type="text/x-handlebars-template">
