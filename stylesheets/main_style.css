@@ -16,7 +16,7 @@ h2 {
 
 #project-title {
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-  font-color: #F2FFE3;
+  color: #ACF0F2;
   font-size: 45px;
 }
 
@@ -30,7 +30,7 @@ p {
 
 .navbar-custom {
   background-color: #225378;
-  border-color: #F2FFE3;
+  border-color: #225378;
   border-radius: 0px;
   color: #acf0f2;
 }
