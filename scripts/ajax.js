@@ -196,15 +196,77 @@ var uploadElementRequest = function (???){
   });
 };
 
+var deleteTagRequest = function (tagId){
+  $.ajax({
+    url: sa + '/tags/' + tagId, // CLARIFY IT
+    type: 'DELETE',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    indexTagCloud(data);
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
 
+var createTagRequest = function (){
+  var tagData = {
+    name: $('#').val();
+  };
+  $.ajax({
+    url: sa + '/tags', // CLARIFY IT
+    type: 'POST',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(tagData)
+  })
+  .done(function(data){
+    indexTagCloud(data);
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
 
-// logoutUserRequest
-// , , ,
-// TAGS CRUD
-//
-// PROFILE U
+var updateTagRequest = function (tagId){
+  var tagData = {
+    name: $('#').val();
+  };
+  $.ajax({
+    url: sa + '/tags/' + tagId, // CLARIFY IT
+    type: 'PUT',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(tagData)
+  })
+  .done(function(data){
+    indexTagCloud(data);
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
 
-// stretch: showFileRequest
+var logoutUserRequest = function (){
+  $.ajax({
+    url: sa + '/logout', // CLARIFY IT
+    type: 'POST',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
 
 // var testProfileData = {
 //   username: "data.profileData.username",
@@ -241,14 +303,17 @@ var testElementData = [
   // tagName: "data.fileData.tagName",
   {
     name: "my secret file 1",
-    directory: true
+    directory: true,
+    path: "cara@cara.com"
   },
   {
     name: "my secret file 2",
-    directory: false
+    directory: false,
+    path: "cara@cara.com"
   },
   {
     name: "my secret file 2",
-    directory: false
+    directory: false,
+    path: "cara@cara.com,private"
   }
 ];
