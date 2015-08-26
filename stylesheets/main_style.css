@@ -31,8 +31,8 @@ p {
 
 .navbar-custom {
   background-color: #225378;
-  border-color: #225378;
-  border-radius: 0px;
+  border-color: #3787C4;
+  border-radius: 10px;
   color: #acf0f2;
 }
 
@@ -138,6 +138,12 @@ p {
     font-size: 21px;
     line-height: 1.4;
   }
+
+/* glyphicon */
+
+.glyphicon {
+  color: #225378;
+}
 
 /* footer */
 
