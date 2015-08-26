@@ -81,7 +81,7 @@ var changePasswordRequest = function(){
     username: $('#update-email').val(),
     oldPassword: $('#update-oldPassword').val(),
     newPassword: $('#update-newPassword').val()
-  }
+  };
   $.ajax({
     url: sa + '/users/', // CLARIFY IT
     type: 'POST',
@@ -187,7 +187,7 @@ var updateElementRequest = function (elementId){
   });
 };
 
-var uploadElementRequest = function (???){
+var uploadElementRequest = function (/*???*/){
   $.ajax({
     url: sa + '/element/' + elementId, // CLARIFY IT
     type: 'POST',
@@ -222,7 +222,7 @@ var deleteTagRequest = function (tagId){
 
 var createTagRequest = function (){
   var tagData = {
-    name: $('#').val();
+    name: $('#').val()
   };
   $.ajax({
     url: sa + '/tags', // CLARIFY IT
@@ -243,7 +243,7 @@ var createTagRequest = function (){
 
 var updateTagRequest = function (tagId){
   var tagData = {
-    name: $('#').val();
+    name: $('#').val()
   };
   $.ajax({
     url: sa + '/tags/' + tagId, // CLARIFY IT
@@ -268,6 +268,93 @@ var logoutUserRequest = function (){
     type: 'POST',
     contentType: 'application/json',
     processData: false
+  })
+  .done(function(data){
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var addFolderRequest = function(){
+  var folderData = {
+    elementName: "something",   //something,
+    path: ",something,somethingelse",        //build from front end,
+    tagsArray: 'funny, work, max', //expect a string that we will split on commas ','
+    description: 'My cool folder'
+  };
+  $.ajax({
+    url: sa + '/createFolder/', // CLARIFY IT
+    type: 'POST',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(folderData)
+  })
+  .done(function(data){
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var addFileRequest = function(){
+  var fileData = {
+    elementName: "something",   //something,
+    path: "/something/somethingelse",        //build from front end,
+    sourceURL: "$('#update-newPassword').val()", // all going to be jqueries to pull info from F.E.
+    tagsArray: 'funny, work, max', //expect a string that we will split on commas ','
+    description: 'My cool folder'
+  };
+  $.ajax({
+    url: sa + '/createFile/', // CLARIFY IT
+    type: 'POST',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(fileData)
+  })
+  .done(function(data){
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var deleteFolderRequest = function(){
+  var folderData = {
+    path: "/something/somethingelse",
+    mongoId: '' //$(pull the mongo ID from the thing)
+  };
+  $.ajax({
+    url: sa + '/deleteFolder/', // CLARIFY IT
+    type: 'DELETE',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(folderData)
+  })
+  .done(function(data){
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var deleteFileRequest = function(){
+  var fileData = {
+    path: "/something/somethingelse",
+    mongoId: ''  //build from front end,
+    // WE ONLY NEED THE SOURCE IF WE ALSO WANT TO DELETE IT FROM AWS!
+    //sourceURL: "$('#update-newPassword').val()" // all going to be jqueries to pull info from F.E.
+  };
+  $.ajax({
+    url: sa + '/deleteFile/', // CLARIFY IT
+    type: 'DELETE',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(fileData)
   })
   .done(function(data){
     // back to the homepage, keeping the session alive
