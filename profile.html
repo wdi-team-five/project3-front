@@ -69,7 +69,9 @@
             <div class="panel-heading">
               <h3 class="panel-title">Document List</h3>
             </div>
-            <div id="display-document-index" class="panel-body"></div> <!-- end panel body -->
+            <div id="display-document-index" class="panel-body">
+              <p>This is a test. This is only a test.</p>
+            </div> <!-- end panel body -->
           </div>
         </div>
         <!-- end document sidebar -->
@@ -113,9 +115,9 @@
       <!-- <button type="button" id="profile-show-button">Button yo</button> -->
 
       <script id="profile-show-template" type="text/x-handlebars-template">
-        <h4>{{firstName}} {{lastName}}</h4>
-        <p>Email: {{username}}</p>
-        <p>Company: {{company}}</p>
+        <h4> {{lastName}}</h4>
+        <p>Email: {{firstName}} {{username}}</p>
+        <p>Company: {{companyName}}</p>
       </script>
 
       <script id="tag-index-template" type="text/x-handlebars-template">
@@ -129,17 +131,18 @@
       </script>
 
       <script id="document-index-template" type="text/x-handlebars-template">
-        {{#each}}
+        {{#each files}}
           <li>
-            // {{#if directory}}
-            //   <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-            // {{else}}
-              <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-              <button type="button" id="return-root">Return Home</button> // JS function
             <p>{{elementName}}</p>
+            <p>{{path}}</p>
+            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
           </li>
         {{/each}}
       </script>
+<!--
+      <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+      <button type="button" id="return-root">Return Home</button> // JS function -->
+
 
     </div> <!-- end main body -->
 

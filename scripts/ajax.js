@@ -158,8 +158,8 @@ var showFileRequest = function (){
     processData: false
   })
   .done(function(data){
-    console.log("FILES DATAAAAAA ISSSSSS ", data);
-    indexDocumentForm(data);
+    console.log("The thing we're passing in to indexDocForm is", data[0]);
+    indexDocumentForm({files: data});
     // NEED BACK: username, profile info, elementList
     // username = data.profileData.username;
     // showProfileForm(testProfileData); // CHANGE TO DATA
