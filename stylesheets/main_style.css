@@ -37,18 +37,22 @@ p {
   color: #acf0f2;
 }
 
+.navbar-custom .navbar-nav > .open > a {
+  color: #fff;
+  background-color: #225378;
+}
+
 .navbar-custom .navbar-nav > li > a {
   color: #ACF0F2;
   background-color: #225378;
 }
 
-.navbar-custom > li > a:hover {
-  background-color: #225378;
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #F2FFE3;
 }
 
-.navbar-custom .navbar-nav > .active > a {
-  /*color: #F2FFE3;*/
-  color: #fff;
+.navbar-custom > li > a:hover {
   background-color: #225378;
 }
 
