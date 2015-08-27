@@ -3,8 +3,59 @@ body {
   color: #5a5a5a;
 }
 
+h1 {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  line-height: 65px;
+}
+
+h2, h3 {
+  font-family: 'Vollkorn', Georgia, Times, serif;
+  font-weight: bold;
+}
+
+#project-title {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-size: 45px;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+p {
+  font-family: 'Vollkorn', Georgia, Times, serif;
+  font-size: 16px;
+  line-height: 25px
+}
 
 /* navbar */
+
+.navbar-custom {
+  background-color: #225378;
+  border-color: #3787C4;
+  border-radius: 10px;
+  color: #acf0f2;
+}
+
+.navbar-custom .navbar-nav > li > a {
+  color: #ACF0F2;
+  background-color: #225378;
+}
+
+.navbar-custom > li > a:hover {
+  background-color: #225378;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+  /*color: #F2FFE3;*/
+  color: #fff;
+  background-color: #225378;
+}
+
+.navbar-custom .navbar-brand {
+  color: #acf0f2;
+  background-color: #225378;
+}
 
 /* position container around navbar */
 .navbar-wrapper {
@@ -21,6 +72,7 @@ body {
   padding-left: 0;
 }
 .navbar-wrapper .navbar {
+  color: #acf0f2;
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -89,6 +141,12 @@ body {
     line-height: 1.4;
   }
 
+/* glyphicon */
+
+.glyphicon {
+  color: #225378;
+}
+
 /* footer */
 
 .footer {
@@ -99,4 +157,15 @@ body {
   font-size: 90%;
   font-weight: medium;
   text-align: center;
+}
+
+/* profile page row settings */
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.marketing {
+  margin-top: 100px;
 }
