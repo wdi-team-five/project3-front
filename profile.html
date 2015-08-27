@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
   <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <!-- navbar -->
@@ -130,23 +129,25 @@
       </script>
 
       <script id="document-index-template" type="text/x-handlebars-template">
-        {{#each documents}}
+        {{#each}}
           <li>
             // {{#if directory}}
             //   <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
             // {{else}}
               <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
               <button type="button" id="return-root">Return Home</button> // JS function
-            <p>{{name}}</p>
+            <p>{{elementName}}</p>
           </li>
         {{/each}}
       </script>
 
     </div> <!-- end main body -->
 
-    <script type="text/javascript" src="scripts/ajax.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript" src="scripts/profile_info.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/ajax.js"></script>
+
   </body>
 </html>

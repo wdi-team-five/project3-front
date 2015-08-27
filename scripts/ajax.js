@@ -14,6 +14,7 @@ $.ajaxSetup({
     return false;
   });
   $('#upload').on('click', function (e) {
+    console.log("YOU clicked upload!");
     var formData = new FormData($('#upload-form')[0]);
     $.ajax({
       url: sa + '/images',
@@ -140,14 +141,36 @@ var showProfileRequest = function (){
     console.log("DATAAAAAA ISSSSSS ", data);
     // NEED BACK: username, profile info, elementList
     // username = data.profileData.username;
-    showProfileForm(testProfileData); // CHANGE TO DATA
-    indexTagCloud(testTagData); // CHANGE TO DATA
+    showProfileForm(data); // CHANGE TO DATA
+    // indexTagCloud(testTagData); // CHANGE TO DATA
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
   });
 };
+
+var showFileRequest = function (){
+  $.ajax({
+    url: sa + '/files',
+    type: 'GET',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    console.log("FILES DATAAAAAA ISSSSSS ", data);
+    indexDocumentForm(data);
+    // NEED BACK: username, profile info, elementList
+    // username = data.profileData.username;
+    // showProfileForm(testProfileData); // CHANGE TO DATA
+    // indexTagCloud(testTagData); // CHANGE TO DATA
+    // back to the homepage, keeping the session alive
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
 
 var showElementsByTagRequest = function (tagId){
   $.ajax({
