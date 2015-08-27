@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
   <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
+  <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
@@ -35,7 +36,7 @@
                 <li><a id="show-login-modal">Login</a></li>
                 <li><a id="show-register-modal">Register</a></li>
                 <li><a id="logout-button">Logout</a></li>
-                <li><a id="profile-show-button">Profile</a></li>
+                <li><a href="profile.html">Profile</a></li>
               </ul>
             </div>
           </div>
@@ -133,14 +134,11 @@
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each documents}}
           <li>
-            {{#if directory}}
-              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-            {{else}}
+            // {{#if directory}}
+            //   <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+            // {{else}}
               <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-            {{/if}}
-            {{#if username !== name}}
               <button type="button" id="return-root">Return Home</button> // JS function
-            {{/if}}
             <p>{{name}}</p>
           </li>
         {{/each}}

@@ -2,6 +2,34 @@
 var username;
 var sa = 'http://localhost:8000';
 
+$.ajaxSetup({
+  xhrFields: { withCredentials: true }
+});
+
+// upload form function
+
+  $('#upload-form').on('submit', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  });
+  $('#upload').on('click', function (e) {
+    var formData = new FormData($('#upload-form')[0]);
+    $.ajax({
+      url: sa + '/images',
+      type: 'POST',
+      contentType: false,
+      processData: false,
+      data: formData
+    })
+    .done(function(data) {
+      // $('#display-document-index').html(JSON.stringify(data, null, 2));
+      console.log("data is ", data);
+    })
+    .fail(function(jqxhr) {
+      console.error(jqxhr);
+    });
+  });
 
 var registerUserRequest = function (){
   var registerData = {
@@ -21,7 +49,7 @@ var registerUserRequest = function (){
   .done(function(data) {
     // NEED BACK: email
     // $('#result').html(JSON.stringify(data, null, 2));
-    $('#register-modal').hide();
+    $('#register-modal').modal('hide');
     $("#login-modal").modal();
   })
   .fail(function(jqxhr) {
@@ -44,7 +72,7 @@ var loginUserRequest = function (){
   })
   .done(function(data){
     // NEED BACK: ??
-    $("#login-modal").hide();
+    $("#login-modal").modal('hide');
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
