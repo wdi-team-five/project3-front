@@ -137,8 +137,9 @@ var showProfileRequest = function (){
     processData: false
   })
   .done(function(data){
+    console.log("DATAAAAAA ISSSSSS ", data);
     // NEED BACK: username, profile info, elementList
-    username = data.profileData.username;
+    // username = data.profileData.username;
     showProfileForm(testProfileData); // CHANGE TO DATA
     indexTagCloud(testTagData); // CHANGE TO DATA
     // back to the homepage, keeping the session alive
