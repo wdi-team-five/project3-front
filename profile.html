@@ -117,22 +117,25 @@
       </script>
 
       <script id="tag-index-template" type="text/x-handlebars-template">
-
           <div class="row">
             {{#each tags}}
-              <a class="tag-cloud" href="#">{{this}}</a>
+              <p><a class="tag-cloud" href="#">{{this}}</a></p>
             {{/each}}
           </div>
       </script>
 
+      <script id="tag-prepend-template" type="text/x-handlebars-template">
+        <p><a class="tag-cloud" href="#">{{this}}</a></p>
+      </script>
+
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each files}}
-            <p><span class="glyphicon glyphicon-folder-close" aria-hidden="true"><a href={{sourceURL}}> {{elementName}}</a></span></p>
+            <p><span class="glyphicon glyphicon-file" aria-hidden="true"><a href={{sourceURL}}> {{elementName}}</a></span></p>
         {{/each}}
       </script>
 
       <script id="document-prepend-template" type="text/x-handlebars-template">
-            <p><span class="glyphicon glyphicon-folder-close" aria-hidden="true"><a href={{sourceURL}}> {{elementName}}</a></span></p>
+            <p><span class="glyphicon glyphicon-file" aria-hidden="true"><a href={{sourceURL}}> {{elementName}}</a></span></p>
       </script>
 
     </div> <!-- end main body -->

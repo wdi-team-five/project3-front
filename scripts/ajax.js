@@ -15,6 +15,7 @@ $.ajaxSetup({
   });
   $('#upload').on('click', function (e) {
     var formData = new FormData($('#upload-form')[0]);
+    var newTag = $('#tag').val();
     $.ajax({
       url: sa + '/addFile',
       type: 'POST',
@@ -23,9 +24,9 @@ $.ajaxSetup({
       data: formData
     })
     .done(function(data) {
-      console.log("data returned in upload looks like ", data);
       // $('#display-document-index').html(JSON.stringify(data, null, 2));
       prependDocumentForm(data);
+      prependTagCloud(newTag);
     })
     .fail(function(jqxhr) {
       console.error(jqxhr);
