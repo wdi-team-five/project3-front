@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CMS</title> <!-- Change -->
+  <title>CMS</title>
   <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -73,8 +73,11 @@
             <div class="panel-body">
               <!-- AWS Upload Form -->
               <form id="upload-form" enctype="multipart/form-data" accept-charset="utf-8">
-                <label for="caption">Caption: </label>
-                <input type="text" name="caption" id="caption" value="" placeholder="File Caption"><br>
+               <label for="caption">Caption: </label>
+               <input type="text" name="caption" id="caption" placeholder="File Caption">
+               <label for="tag-input">Tag: </label>
+               <input type="text" name="tag-input" id="tag-input" placeholder="File Tag"
+               <br>
                 <input type="file" name="file" id="file"> <!-- center me -->
                 <br><button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
               </form>
@@ -118,13 +121,12 @@
       </script>
 
       <script id="tag-index-template" type="text/x-handlebars-template">
-        {{#grouped_each 5 tags}}
+
           <div class="row">
-            {{#each this}}
-              <a class="tag-cloud" href="#">{{name}}</a>
+            {{#each tags}}
+              <a class="tag-cloud" href="#">{{this}}</a>
             {{/each}}
           </div>
-        {{/grouped_each}}
       </script>
 
       <script id="document-index-template" type="text/x-handlebars-template">

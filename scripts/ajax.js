@@ -174,17 +174,41 @@ var showFileRequest = function (){
   });
 };
 
-
-var showElementsByTagRequest = function (tagId){
+var showTagsRequest = function (){
   $.ajax({
-    url: sa + '/tag/' + tagId, // CLARIFY IT
+    url: sa + '/tags',
     type: 'GET',
     contentType: 'application/json',
     processData: false
   })
   .done(function(data){
+    console.log('data were sending to tag cloud id ', {tags: data});
+    indexTagCloud({tags: data});
+    // data.forEach(function(tag){
+    //   var tagItem = '';
+    //   tagItem =
+    // });
+  })
+  .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var showElementsByTagRequest = function (tagName){
+  var tagData = {
+      tag: tagName
+    };
+  $.ajax({
+    url: sa + '/tagged', // CLARIFY IT
+    type: 'POST',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify(tagData)
+  })
+  .done(function(data){
+    console.log('data is ', data);
     // NEED BACK: elements list according to tag
-    indexDocumentForm(data.files);
+    indexDocumentForm({files: data});
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
