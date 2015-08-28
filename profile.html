@@ -84,10 +84,6 @@
 
       </div>
 
-      <!-- <div class="row"> -->
-
-      <!-- </div> -->
-
       <div class="row">
 
         <!--  tag cloud left div -->
@@ -108,15 +104,12 @@
               <h3 class="panel-title">Document List</h3>
             </div>
             <div id="display-document-index" class="panel-body">
-              <p>This is a test. This is only a test.</p>
             </div> <!-- end panel body -->
           </div>
         </div>
         <!-- end document sidebar -->
 
       </div> <!-- end row -->
-
-      <!-- <button type="button" id="profile-show-button">Button yo</button> -->
 
       <script id="profile-show-template" type="text/x-handlebars-template">
         <h4> {{firstName}} {{lastName}}</h4>
@@ -135,14 +128,9 @@
 
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each files}}
-            <p><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> {{elementName}}</p>
-            <p>{{path}}</p>
+            <p><span class="glyphicon glyphicon-folder-close" aria-hidden="true"><a href={{path}}> {{elementName}}</a></span></p>
         {{/each}}
       </script>
-<!--
-      <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-      <button type="button" id="return-root">Return Home</button> // JS function -->
-
 
     </div> <!-- end main body -->
 

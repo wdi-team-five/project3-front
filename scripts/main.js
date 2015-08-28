@@ -1,5 +1,4 @@
 var showProfileForm = function (data) {
-    console.log("Show Profile Form data is ", data);
     var profileShowTemplate = Handlebars.compile($('#profile-show-template').html());
     $('#display-profile-information').html(profileShowTemplate(data));
   };
@@ -10,12 +9,8 @@ var showProfileForm = function (data) {
   };
 
   var indexDocumentForm = function (data) {
-    console.log("IndexDocForm data we are being sent is ", data);
     var documentIndexTemplate = Handlebars.compile($('#document-index-template').html());
-    // $('#display-document-index').html("<p>hello world</p>");
-    console.log("Doc index temp(data) is ",documentIndexTemplate(data));
     $('#display-document-index').html(documentIndexTemplate(data));
-    // console.log("This is the second template", $('#document-index-template').html());
   };
 
 
@@ -36,7 +31,6 @@ $(document).ready(function(){
     $('#login-button').on('click', function(){
       loginUserRequest();
     });
-
 
   showProfileRequest();
   showFileRequest();

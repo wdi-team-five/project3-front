@@ -14,7 +14,6 @@ $.ajaxSetup({
     return false;
   });
   $('#upload').on('click', function (e) {
-    console.log("YOU clicked upload!");
     var formData = new FormData($('#upload-form')[0]);
     $.ajax({
       url: sa + '/images',
@@ -25,7 +24,7 @@ $.ajaxSetup({
     })
     .done(function(data) {
       // $('#display-document-index').html(JSON.stringify(data, null, 2));
-      console.log("data is ", data);
+      console.log("this should append to the list. ajax line 27");
     })
     .fail(function(jqxhr) {
       console.error(jqxhr);
@@ -138,7 +137,6 @@ var showProfileRequest = function (){
     processData: false
   })
   .done(function(data){
-    console.log("DATAAAAAA ISSSSSS ", data);
     // NEED BACK: username, profile info, elementList
     // username = data.profileData.username;
     showProfileForm(data); // CHANGE TO DATA
@@ -158,7 +156,6 @@ var showFileRequest = function (){
     processData: false
   })
   .done(function(data){
-    console.log("The thing we're passing in to indexDocForm is", data[0]);
     indexDocumentForm({files: data});
     // NEED BACK: username, profile info, elementList
     // username = data.profileData.username;
@@ -415,54 +412,3 @@ var deleteFileRequest = function(){
     console.error(jqxhr);
   });
 };
-
-
-// var testProfileData = {
-//   username: "data.profileData.username",
-//   firstName: "data.profileData.firstName",
-//   lastName: "data.profileData.lastName",
-//   company: "data.profileData.company"
-// };
-
-
-var testProfileData = {
-  username: "cara@cara.com",
-  firstName: "Cara",
-  lastName: "Clarke",
-  company: "Google Inc."
-};
-
-// var testTagData = {
-//   tagId: "data.tagData.tagId",
-//   name: "data.tagData.tagName"
-// };
-
-var testTagData = [{
-  tagId: "34",
-  name: "work"
-}, {
-  tagId: "35",
-  name: "hobby"
-}, {
-  tagId: "36",
-  name: "my little pony"
-}];
-
-var testElementData = [
-  // tagName: "data.fileData.tagName",
-  {
-    name: "my secret file 1",
-    directory: true,
-    path: "cara@cara.com"
-  },
-  {
-    name: "my secret file 2",
-    directory: false,
-    path: "cara@cara.com"
-  },
-  {
-    name: "my secret file 2",
-    directory: false,
-    path: "cara@cara.com,private"
-  }
-];
