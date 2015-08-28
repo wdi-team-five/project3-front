@@ -2,18 +2,10 @@
 
 As a user, I want to register so that I can login
 
-As a user, I want to login so that I can view files
-
-As a user, I want to login so that I can upload new files
-
-As a user, I want to login so that I can download files
-
-As a user, I want to login so that I can edit (rename, delete and tag) files
-
-As a user, I want to login so that I can delete files
-  (optional) As a user, I want to login so that I can share files
-
-As a user, I want to login so that I can search through files
-  (optional) As a user, I want to login so that I can collaborate with my colleauges
-
-As a user, I want to login so that I can delete my account
+As a user, I want to login so that I can view my files/folders
+  so that I can upload new files and tags
+  so that I can view my file/folder content
+  so that I can edit my files
+  so that I can delete
+  so that I can add tags
+  so that I can delete my account
