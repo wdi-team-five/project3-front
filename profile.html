@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IAI CMS</title>
+  <title>CMS</title>
   <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -117,13 +117,12 @@
       </script>
 
       <script id="tag-index-template" type="text/x-handlebars-template">
-        {{#grouped_each 5 tags}}
+
           <div class="row">
-            {{#each this}}
-              <a class="tag-cloud" href="#">{{name}}</a>
+            {{#each tags}}
+              <a class="tag-cloud" href="#">{{this}}</a>
             {{/each}}
           </div>
-        {{/grouped_each}}
       </script>
 
       <script id="document-index-template" type="text/x-handlebars-template">

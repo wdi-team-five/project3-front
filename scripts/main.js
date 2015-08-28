@@ -6,6 +6,12 @@ var showProfileForm = function (data) {
   var indexTagCloud = function (data) {
     var tagIndexTemplate = Handlebars.compile($('#tag-index-template').html());
     $('#display-tag-index').html(tagIndexTemplate(data));
+    // console.log("tagindexTemp(data) looks like ", tagIndexTemplate(data));
+    $(".tag-cloud").on('click', function(event){
+      // event.preventDefault();
+      // console.log("Click ", $(this).html());
+      showElementsByTagRequest($(this).html().toString());
+    });
   };
 
   var indexDocumentForm = function (data) {
@@ -44,16 +50,16 @@ $(document).ready(function(){
       loginUserRequest();
     });
 
+
+
   // hideButton();
   showProfileRequest();
   showFileRequest();
+  showTagsRequest();
 
 }); // end document.ready
 
-$(".tag-cloud").on('click', 'h4 > a', function(event){
-  event.preventDefault();
-  showElementsByTagRequest($(this).id);
-});
+
 
 // tag make row handlebars helper
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
