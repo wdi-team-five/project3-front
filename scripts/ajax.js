@@ -248,7 +248,6 @@ var deleteElementRequest = function (elementId){
   })
   .done(function(data){
     // NEED BACK: ??
-
     // indexDocumentForm(data.files);
     // back to the homepage, keeping the session alive
   })
