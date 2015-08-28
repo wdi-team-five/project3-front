@@ -10,18 +10,18 @@
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
   <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <!-- navbar -->
   <body>
     <div class="navbar-wrapper">
       <div class="container">
-
         <nav class="navbar navbar-custom navbar-static-top">
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -73,11 +73,11 @@
             <div class="panel-body">
               <!-- AWS Upload Form -->
               <form id="upload-form" enctype="multipart/form-data" accept-charset="utf-8">
-               <label for="caption">Caption: </label>
-               <input type="text" name="caption" id="caption" placeholder="File Caption">
-               <label for="tag-input">Tag: </label>
-               <input type="text" name="tag-input" id="tag-input" placeholder="File Tag"
-               <br>
+                <label for="caption">Caption: </label>
+                <input type="text" name="caption" id="caption" placeholder="File Caption">
+                <label for="tag-input">Tag: </label>
+                <input type="text" name="tag-input" id="tag-input" placeholder="File Tag"
+                <br>
                 <input type="file" name="file" id="file"> <!-- center me -->
                 <br><button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
               </form>
@@ -86,10 +86,7 @@
         </div>
         <!-- end profile buttons left -->
 
-      </div>
-
       <div class="row">
-
         <!--  tag cloud left div -->
         <div class="left col-md-6">
           <div class="panel panel-primary">
@@ -112,7 +109,6 @@
           </div>
         </div>
         <!-- end document sidebar -->
-
       </div> <!-- end row -->
 
       <script id="profile-show-template" type="text/x-handlebars-template">
@@ -138,10 +134,8 @@
     </div> <!-- end main body -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/profile_info.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/ajax.js"></script>
-
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
