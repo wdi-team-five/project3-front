@@ -13,6 +13,11 @@ var showProfileForm = function (data) {
     $('#display-document-index').html(documentIndexTemplate(data));
   };
 
+  var prependDocumentForm = function (data) {
+    var documentPrependTemplate = Handlebars.compile($('#document-prepend-template').html());
+    $('#display-document-index').prepend(documentPrependTemplate(data));
+  }
+
   // var hideButton = function(data) {
   //   if (data) {
   //   $('#show-login-modal').addClass('hide');
