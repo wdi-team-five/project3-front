@@ -13,7 +13,6 @@ var showProfileForm = function (data) {
     $('#display-document-index').html(documentIndexTemplate(data));
   };
 
-
 $(document).ready(function(){
 
     $("#show-register-modal").click(function(){
@@ -57,6 +56,4 @@ Handlebars.registerHelper('grouped_each', function(every, context, options) {
   }
   return out;
 });
-
-
 

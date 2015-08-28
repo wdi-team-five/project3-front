@@ -71,9 +71,11 @@ var loginUserRequest = function (){
     data: JSON.stringify(loginData)
   })
   .done(function(data){
-    // NEED BACK: ??
     $("#login-modal").modal('hide');
-    // back to the homepage, keeping the session alive
+    $('#show-login-modal').addClass('hide');
+    $('#show-register-modal').addClass('hide');
+    $('#logout-button').removeClass('hide');
+    window.location.href="profile.html";
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
@@ -320,6 +322,9 @@ var logoutUserRequest = function (){
   })
   .done(function(data){
     // back to the homepage, keeping the session alive
+    $('#show-login-modal').removeClass('hide');
+    $('#show-register-modal').removeClass('hide');
+    $('#logout-button').addClass('hide');
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
