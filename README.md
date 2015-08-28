@@ -16,5 +16,4 @@ We used user stories to create our site functions. (link below)
 https://github.com/wdi-team-five/project3-front/blob/master/user-stories.txt
 
 Simple wireframes are attached below, we stuck to them for the most part with small adjustments as we saw how information needed to be displayed.
-
-//// link to wireframes ///
+https://github.com/wdi-team-five/project3-front/blob/master/project3-wireframes.pdf
