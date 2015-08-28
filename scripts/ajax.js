@@ -78,6 +78,7 @@ var loginUserRequest = function (){
     $('#show-login-modal').addClass('hide');
     $('#show-register-modal').addClass('hide');
     $('#logout-button').removeClass('hide');
+    window.location.href="profile.html";
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
