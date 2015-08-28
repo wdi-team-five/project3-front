@@ -186,7 +186,6 @@ var showTagsRequest = function (){
     processData: false
   })
   .done(function(data){
-    console.log('data were sending to tag cloud id ', {tags: data});
     indexTagCloud({tags: data});
     // data.forEach(function(tag){
     //   var tagItem = '';
@@ -210,7 +209,6 @@ var showElementsByTagRequest = function (tagName){
     data: JSON.stringify(tagData)
   })
   .done(function(data){
-    console.log('data is ', data);
     // NEED BACK: elements list according to tag
     indexDocumentForm({files: data});
     // back to the homepage, keeping the session alive

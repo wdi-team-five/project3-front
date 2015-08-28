@@ -6,10 +6,7 @@ var showProfileForm = function (data) {
   var indexTagCloud = function (data) {
     var tagIndexTemplate = Handlebars.compile($('#tag-index-template').html());
     $('#display-tag-index').html(tagIndexTemplate(data));
-    // console.log("tagindexTemp(data) looks like ", tagIndexTemplate(data));
     $(".tag-cloud").on('click', function(event){
-      // event.preventDefault();
-      // console.log("Click ", $(this).html());
       showElementsByTagRequest($(this).html().toString());
     });
   };
