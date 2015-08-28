@@ -14,6 +14,14 @@ var showProfileForm = function (data) {
     });
   };
 
+  var prependTagCloud = function (data) {
+    var prependTagTemplate = Handlebars.compile($('#tag-prepend-template').html());
+    $('#display-tag-index').prepend(prependTagTemplate(data));
+    $(".tag-cloud").on('click', function(event){
+      showElementsByTagRequest($(this).html().toString());
+    });
+  };
+
   var indexDocumentForm = function (data) {
     var documentIndexTemplate = Handlebars.compile($('#document-index-template').html());
     $('#display-document-index').html(documentIndexTemplate(data));
@@ -23,14 +31,6 @@ var showProfileForm = function (data) {
     var documentPrependTemplate = Handlebars.compile($('#document-prepend-template').html());
     $('#display-document-index').prepend(documentPrependTemplate(data));
   }
-
-  // var hideButton = function(data) {
-  //   if (data) {
-  //   $('#show-login-modal').addClass('hide');
-  //   $('#show-register-modal').addClass('hide');
-  //   $('#logout-button').removeClass('hide');
-  //   }
-  // };
 
 $(document).ready(function(){
 
@@ -62,18 +62,18 @@ $(document).ready(function(){
 
 
 // tag make row handlebars helper
-Handlebars.registerHelper('grouped_each', function(every, context, options) {
-  var out = "", subcontext = [], i;
-  if (context && context.length > 0) {
-    for (i = 0; i < context.length; i++) {
-      if (i > 0 && i % every === 0) {
-        out += options.fn(subcontext);
-        subcontext = [];
-      }
-      subcontext.push(context[i]);
-    }
-    out += options.fn(subcontext);
-  }
-  return out;
-});
+// Handlebars.registerHelper('grouped_each', function(every, context, options) {
+//   var out = "", subcontext = [], i;
+//   if (context && context.length > 0) {
+//     for (i = 0; i < context.length; i++) {
+//       if (i > 0 && i % every === 0) {
+//         out += options.fn(subcontext);
+//         subcontext = [];
+//       }
+//       subcontext.push(context[i]);
+//     }
+//     out += options.fn(subcontext);
+//   }
+//   return out;
+// });
 
