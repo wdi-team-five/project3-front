@@ -235,15 +235,18 @@ var showElementsRequest = function (elementId){
 };
 
 var deleteElementRequest = function (elementId){
+  var fileObject = { mongoId: elementId };
   $.ajax({
-    url: sa + '/elements/' + elementId, // CLARIFY IT
+    url: sa + '/deleteFile', // CLARIFY IT
     type: 'DELETE',
     contentType: 'application/json',
-    processData: false
+    processData: false,
+    data: JSON.stringify(fileObject)
   })
   .done(function(data){
     // NEED BACK: ??
-    indexDocumentForm(data.files);
+
+    // indexDocumentForm(data.files);
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
