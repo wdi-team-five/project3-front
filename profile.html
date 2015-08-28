@@ -5,11 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMS</title> <!-- Change -->
+<<<<<<< HEAD
   <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
   <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
+=======
+  <link rel="stylesheet" type="text/css" href="stylesheets/profile_style.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
 </head>
 
 <!-- navbar -->
@@ -17,7 +24,11 @@
     <div class="navbar-wrapper">
       <div class="container">
 
+<<<<<<< HEAD
         <nav class="navbar navbar-custom navbar-static-top">
+=======
+        <nav class="navbar navbar-inverse navbar-static-top">
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -26,15 +37,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+<<<<<<< HEAD
               <a id ="project-title" class="navbar-brand" href="index.html">IAI</a>
+=======
+              <a class="navbar-brand" href="index.html">Project name</a>
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">Home</a></li>
+<<<<<<< HEAD
                 <li><a href="#" class="" id="show-login-modal">Login</a></li>
                 <li><a href="#" class="" id="show-register-modal">Register</a></li>
                 <li><a href="#" class="hide" id="logout-button">Logout</a></li>
                 <li><a href="profile.html">Profile</a></li>
+=======
+                <li><a id="show-login-modal">Login</a></li>
+                <li><a id="show-register-modal">Register</a></li>
+                <li><a id="logout-button">Logout</a></li>
+                <li><a id="profile-show-button">Profile</a></li>
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
               </ul>
             </div>
           </div>
@@ -54,20 +76,41 @@
               <div class="panel-heading">
                 <h3 class="panel-title">Profile Information</h3>
               </div>
+<<<<<<< HEAD
               <div id="display-profile-information" class="panel-body">
                 <!-- Profile Update -->
                 <button id="profile-update" type="button" class="btn btn-primary">Edit Profile</button>
                 <!-- Profile Delete -->
                 <button id="profile-delete" type="button" class="btn btn-primary">Delete Profile</button>
               </div> <!-- end panel body -->
+=======
+              <div id="display-profile-information" class="panel-body"></div> <!-- end panel body -->
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
             </div>
           </div>
         <!-- end left profile info  -->
 
+<<<<<<< HEAD
+=======
+        <!-- document right sidebar -->
+        <div class="aside col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Document List</h3>
+            </div>
+            <div id="display-document-index" class="panel-body"></div> <!-- end panel body -->
+          </div>
+        </div>
+        <!-- end document sidebar -->
+      </div>
+
+      <div class="row">
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
         <!--  profile buttons left div -->
         <div class="left col-md-6">
           <div class="panel panel-primary">
             <div class="panel-heading">
+<<<<<<< HEAD
               <h3 class="panel-title">Document Upload Form</h3>
             </div>
             <div class="panel-body">
@@ -80,16 +123,37 @@
                 <br>
                 <input type="file" name="file" id="file"> <!-- center me -->
                 <br><button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
+=======
+              <h3 class="panel-title">Profile Buttons</h3>
+            </div>
+            <div class="panel-body">
+              <!-- Profile Update -->
+              <p><button id="profile-update" type="button" class="btn btn-primary">Edit Profile</button>
+              <!-- Profile Delete -->
+              <button id="profile-delete" type="button" class="btn btn-primary">Delete Profile</button></p>
+              <!-- AWS Upload Form -->
+              <form id="upload-form" enctype="multipart/form-data" accept-charset="utf-8">
+                <label for="caption">Caption: </label>
+                <input type="text" name="caption" id="caption" value="" placeholder="File Caption"><br>
+                <input type="file" name="file" id="file"> <!-- center me -->
+                <button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
               </form>
             </div> <!-- end panel body -->
           </div>
         </div>
         <!-- end profile buttons left -->
+<<<<<<< HEAD
 
       </div>
 
       <div class="row">
 
+=======
+      </div>
+
+      <div class="row">
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
         <!--  tag cloud left div -->
         <div class="left col-md-6">
           <div class="panel panel-primary">
@@ -101,6 +165,7 @@
         </div>
         <!-- end left tag -->
 
+<<<<<<< HEAD
         <!-- document right sidebar -->
         <div class="aside col-md-6">
           <div class="panel panel-info">
@@ -133,16 +198,45 @@
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each files}}
             <p><span class="glyphicon glyphicon-folder-close" aria-hidden="true"><a href={{sourceURL}}> {{elementName}}</a></span></p>
+=======
+      </div> <!-- end row -->
+
+      <!-- <button type="button" id="profile-show-button">Button yo</button> -->
+
+      <script id="profile-show-template" type="text/x-handlebars-template">
+        <h4>{{firstName}} {{lastName}}</h4>
+        <p>Email: {{username}}</p>
+        <p>Company: {{company}}</p>
+      </script>
+
+      <script id="tag-index-template" type="text/x-handlebars-template">
+          {{#each tags}}
+          <p class="tag-cloud"><a href="#">{{name}}</a></p>
+          {{/each}}
+      </script>
+
+      <script id="document-index-template" type="text/x-handlebars-template">
+        {{#each documents}}
+          <li>
+            <p>{{name}}, {{type}}</p>
+          </li>
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
         {{/each}}
       </script>
 
     </div> <!-- end main body -->
 
+<<<<<<< HEAD
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript" src="scripts/profile_info.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/ajax.js"></script>
 
+=======
+    <script type="text/javascript" src="scripts/ajax.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+>>>>>>> 706f88a43fcec0ec238be3d9d21fcdc3bdefde64
   </body>
 </html>
