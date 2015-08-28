@@ -63,21 +63,6 @@
           </div>
         <!-- end left profile info  -->
 
-        <!-- document right sidebar -->
-        <div class="aside col-md-6">
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Document List</h3>
-            </div>
-            <div id="display-document-index" class="panel-body">
-              <p>This is a test. This is only a test.</p>
-            </div> <!-- end panel body -->
-          </div>
-        </div>
-        <!-- end document sidebar -->
-      </div>
-
-      <div class="row">
         <!--  profile buttons left div -->
         <div class="left col-md-6">
           <div class="panel panel-primary">
@@ -96,9 +81,15 @@
           </div>
         </div>
         <!-- end profile buttons left -->
+
       </div>
 
+      <!-- <div class="row"> -->
+
+      <!-- </div> -->
+
       <div class="row">
+
         <!--  tag cloud left div -->
         <div class="left col-md-6">
           <div class="panel panel-primary">
@@ -110,13 +101,26 @@
         </div>
         <!-- end left tag -->
 
+        <!-- document right sidebar -->
+        <div class="aside col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Document List</h3>
+            </div>
+            <div id="display-document-index" class="panel-body">
+              <p>This is a test. This is only a test.</p>
+            </div> <!-- end panel body -->
+          </div>
+        </div>
+        <!-- end document sidebar -->
+
       </div> <!-- end row -->
 
       <!-- <button type="button" id="profile-show-button">Button yo</button> -->
 
       <script id="profile-show-template" type="text/x-handlebars-template">
-        <h4> {{lastName}}</h4>
-        <p>Email: {{firstName}} {{username}}</p>
+        <h4> {{firstName}} {{lastName}}</h4>
+        <p>Email: {{username}}</p>
         <p>Company: {{companyName}}</p>
       </script>
 
@@ -132,11 +136,8 @@
 
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each files}}
-          <li>
-            <p>{{elementName}}</p>
+            <p><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> {{elementName}}</p>
             <p>{{path}}</p>
-            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-          </li>
         {{/each}}
       </script>
 <!--
