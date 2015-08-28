@@ -130,12 +130,12 @@
 
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each files}}
-            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}>{{elementName}}</a> <button type="button" class="btn btn-info btn-xs">Delete</button></p>
+            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}>{{elementName}}</a> <button type="button" class="btn btn-info btn-xs deleteButtons" id={{_id}}>Delete</button></p>
         {{/each}}
       </script>
 
       <script id="document-prepend-template" type="text/x-handlebars-template">
-            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}>{{elementName}}</a> <button type="button" class="btn btn-info btn-xs">Delete</button></p>
+            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}>{{elementName}}</a> <button type="button" class="btn btn-info btn-xs deleteButtons" id="deleteButtons">Delete</button></p>
       </script>
 
     </div> <!-- end main body -->
