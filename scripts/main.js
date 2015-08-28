@@ -13,6 +13,14 @@ var showProfileForm = function (data) {
     $('#display-document-index').html(documentIndexTemplate(data));
   };
 
+  // var hideButton = function(data) {
+  //   if (data) {
+  //   $('#show-login-modal').addClass('hide');
+  //   $('#show-register-modal').addClass('hide');
+  //   $('#logout-button').removeClass('hide');
+  //   }
+  // };
+
 $(document).ready(function(){
 
     $("#show-register-modal").click(function(){
@@ -31,6 +39,7 @@ $(document).ready(function(){
       loginUserRequest();
     });
 
+  // hideButton();
   showProfileRequest();
   showFileRequest();
 

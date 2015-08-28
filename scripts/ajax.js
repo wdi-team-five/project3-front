@@ -24,7 +24,6 @@ $.ajaxSetup({
     })
     .done(function(data) {
       // $('#display-document-index').html(JSON.stringify(data, null, 2));
-      console.log("this should append to the list. ajax line 27");
     })
     .fail(function(jqxhr) {
       console.error(jqxhr);
@@ -75,7 +74,6 @@ var loginUserRequest = function (){
     $('#show-login-modal').addClass('hide');
     $('#show-register-modal').addClass('hide');
     $('#logout-button').removeClass('hide');
-    window.location.href="profile.html";
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
@@ -141,12 +139,18 @@ var showProfileRequest = function (){
   .done(function(data){
     // NEED BACK: username, profile info, elementList
     // username = data.profileData.username;
-    showProfileForm(data); // CHANGE TO DATA
+    showProfileForm(data);
+    if (data) {
+      $('#show-login-modal').addClass('hide');
+      $('#show-register-modal').addClass('hide');
+      $('#logout-button').removeClass('hide');
+    }
     // indexTagCloud(testTagData); // CHANGE TO DATA
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
+    console.log(data);
   });
 };
 
