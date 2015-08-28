@@ -238,15 +238,18 @@ var showElementsRequest = function (elementId){
 };
 
 var deleteElementRequest = function (elementId){
+  var fileObject = { mongoId: elementId };
   $.ajax({
-    url: sa + '/elements/' + elementId, // CLARIFY IT
+    url: sa + '/deleteFile', // CLARIFY IT
     type: 'DELETE',
     contentType: 'application/json',
-    processData: false
+    processData: false,
+    data: JSON.stringify(fileObject)
   })
   .done(function(data){
     // NEED BACK: ??
-    indexDocumentForm(data.files);
+
+    // indexDocumentForm(data.files);
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
@@ -396,48 +399,6 @@ var addFileRequest = function(){
   $.ajax({
     url: sa + '/createFile/', // CLARIFY IT
     type: 'POST',
-    contentType: 'application/json',
-    processData: false,
-    data: JSON.stringify(fileData)
-  })
-  .done(function(data){
-    // back to the homepage, keeping the session alive
-  })
-  .fail(function(jqxhr) {
-    console.error(jqxhr);
-  });
-};
-
-var deleteFolderRequest = function(){
-  var folderData = {
-    path: "/something/somethingelse",
-    mongoId: '' //$(pull the mongo ID from the thing)
-  };
-  $.ajax({
-    url: sa + '/deleteFolder/', // CLARIFY IT
-    type: 'DELETE',
-    contentType: 'application/json',
-    processData: false,
-    data: JSON.stringify(folderData)
-  })
-  .done(function(data){
-    // back to the homepage, keeping the session alive
-  })
-  .fail(function(jqxhr) {
-    console.error(jqxhr);
-  });
-};
-
-var deleteFileRequest = function(){
-  var fileData = {
-    path: "/something/somethingelse",
-    mongoId: ''  //build from front end,
-    // WE ONLY NEED THE SOURCE IF WE ALSO WANT TO DELETE IT FROM AWS!
-    //sourceURL: "$('#update-newPassword').val()" // all going to be jqueries to pull info from F.E.
-  };
-  $.ajax({
-    url: sa + '/deleteFile/', // CLARIFY IT
-    type: 'DELETE',
     contentType: 'application/json',
     processData: false,
     data: JSON.stringify(fileData)
