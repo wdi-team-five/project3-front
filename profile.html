@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMS</title> <!-- Change -->
+  <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+  <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
+</head>
+
+<!-- navbar -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-custom navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a id ="project-title" class="navbar-brand" href="index.html">IAI</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="#" class="" id="show-login-modal">Login</a></li>
+                <li><a href="#" class="" id="show-register-modal">Register</a></li>
+                <li><a href="#" class="hide" id="logout-button">Logout</a></li>
+                <li><a href="profile.html">Profile</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+    <!-- end navbar -->
+
+    <!-- main body -->
+    <div class="container marketing">
+
+      <div class="row">
+        <!-- profile information left div -->
+          <div class="left col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Profile Information</h3>
+              </div>
+              <div id="display-profile-information" class="panel-body">
+                <!-- Profile Update -->
+                <button id="profile-update" type="button" class="btn btn-primary">Edit Profile</button>
+                <!-- Profile Delete -->
+                <button id="profile-delete" type="button" class="btn btn-primary">Delete Profile</button>
+              </div> <!-- end panel body -->
+            </div>
+          </div>
+        <!-- end left profile info  -->
+
+        <!--  profile buttons left div -->
+        <div class="left col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Document Upload Form</h3>
+            </div>
+            <div class="panel-body">
+              <!-- AWS Upload Form -->
+              <form id="upload-form" enctype="multipart/form-data" accept-charset="utf-8">
+                <label for="caption">Caption: </label>
+                <input type="text" name="caption" id="caption" placeholder="File Caption">
+                <label for="tag-input">Tag: </label>
+                <input type="text" name="tag-input" id="tag-input" placeholder="File Tag"
+                <br>
+                <input type="file" name="file" id="file"> <!-- center me -->
+                <br><button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
+              </form>
+            </div> <!-- end panel body -->
+          </div>
+        </div>
+        <!-- end profile buttons left -->
+
+      </div>
+
+      <div class="row">
+
+        <!--  tag cloud left div -->
+        <div class="left col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Tag Cloud</h3>
+            </div>
+            <div id="display-tag-index" class="panel-body"></div> <!-- end panel body -->
+          </div>
+        </div>
+        <!-- end left tag -->
+
+        <!-- document right sidebar -->
+        <div class="aside col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Document List</h3>
+            </div>
+            <div id="display-document-index" class="panel-body">
+            </div> <!-- end panel body -->
+          </div>
+        </div>
+        <!-- end document sidebar -->
+
+      </div> <!-- end row -->
+
+      <script id="profile-show-template" type="text/x-handlebars-template">
+        <h4> {{firstName}} {{lastName}}</h4>
+        <p>Company: {{companyName}}</p>
+      </script>
+
+      <script id="tag-index-template" type="text/x-handlebars-template">
+        {{#grouped_each 5 tags}}
+          <div class="row">
+            {{#each this}}
+              <a class="tag-cloud" href="#">{{name}}</a>
+            {{/each}}
+          </div>
+        {{/grouped_each}}
+      </script>
+
+      <script id="document-index-template" type="text/x-handlebars-template">
+        {{#each files}}
+            <p><span class="glyphicon glyphicon-folder-close" aria-hidden="true"><a href={{sourceURL}}> {{elementName}}</a></span></p>
+        {{/each}}
+      </script>
+
+    </div> <!-- end main body -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/profile_info.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/ajax.js"></script>
+
+  </body>
+</html>
