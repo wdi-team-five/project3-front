@@ -26,7 +26,10 @@ var showProfileForm = function (data) {
     var documentIndexTemplate = Handlebars.compile($('#document-index-template').html());
     $('#display-document-index').html(documentIndexTemplate(data));
     $('.documentLink').on('mouseover', function() {
-      $('.deleteButtons').find('button').removeClass('hide');
+      $('.deleteButtons').removeClass('hide');
+    });
+    $('.documentLink').on('mouseout', function() {
+      $('.deleteButtons').addClass('hide');
     });
     $('.deleteButtons').on('click',function(event){
       deleteElementRequest($(this).attr('id'));//needs to be mongoID);

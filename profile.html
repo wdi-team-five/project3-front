@@ -208,15 +208,15 @@
 
       <script id="document-index-template" type="text/x-handlebars-template">
         {{#each files}}
-          <div class="documentLink">
-            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}> {{elementName}}</a> <button type="button" class="btn btn-info btn-xs deleteButtons hide" id={{_id}}>Delete</button></p>
+          <div class="documentLink col-md-6">
+            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}> {{elementName}}</a> <br><button type="button" class="btn btn-info btn-xs deleteButtons hide aside" id={{_id}}>Delete</button></p>
           </div>
         {{/each}}
       </script>
 
       <script id="document-prepend-template" type="text/x-handlebars-template">
-          <div class="documentLink">
-            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}> {{elementName}}</a> <button type="button" class="btn btn-info btn-xs deleteButtons hide" id="deleteButtons">Delete</button></p>
+          <div class="documentLink col-md-6">
+            <p><span class="glyphicon glyphicon-file" aria-hidden="true"></span><a href={{sourceURL}}> {{elementName}}</a> <br><button type="button" class="btn btn-info btn-xs deleteButtons hide" id="deleteButtons">Delete</button></p>
           </div>
       </script>
 
