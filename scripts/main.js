@@ -22,12 +22,23 @@ var showProfileForm = function (data) {
   var indexDocumentForm = function (data) {
     var documentIndexTemplate = Handlebars.compile($('#document-index-template').html());
     $('#display-document-index').html(documentIndexTemplate(data));
+    $('.documentLink').on('mouseover', function() {
+      $('.deleteButtons').removeClass('hide');
+    });
+    $('.documentLink').on('mouseout', function() {
+      $('.deleteButtons').addClass('hide');
+    });
+    $('.deleteButtons').on('click',function(event){
+      deleteElementRequest($(this).attr('id'));//needs to be mongoID);
+      showFileRequest();
+      showTagsRequest();
+    });
   };
 
   var prependDocumentForm = function (data) {
     var documentPrependTemplate = Handlebars.compile($('#document-prepend-template').html());
     $('#display-document-index').prepend(documentPrependTemplate(data));
-  }
+  };
 
 $(document).ready(function(){
 
@@ -46,8 +57,6 @@ $(document).ready(function(){
     $('#login-button').on('click', function(){
       loginUserRequest();
     });
-
-
 
   // hideButton();
   showProfileRequest();
