@@ -27,7 +27,7 @@ $.ajaxSetup({
       // $('#display-document-index').html(JSON.stringify(data, null, 2));
       prependDocumentForm(data);
       prependTagCloud(newTag);
-      $('#upload-form').clear();
+      $('#upload-form')[0].reset();
     })
     .fail(function(jqxhr) {
       console.error(jqxhr);
