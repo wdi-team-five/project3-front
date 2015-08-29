@@ -20,12 +20,15 @@
 
   var indexFileStructure = function(data) {
     var fileStructureShowTemplate = Handlebars.compile($('#file-structure-show-template').html());
-    console.log("fileStrucShowTemp is ", fileStructureShowTemplate(data));
     console.log("data in indexFileStruc is ", data);
     data.firstName = data.firstName[0].toLowerCase();
     data.lastName = data.lastName.toLowerCase();
      // + data.lastName.toLowerCase() + data.id;
-    $('#display-folder-index').html(fileStructureShowTemplate(data));
+     console.log("fileStrucShowTemp is ", fileStructureShowTemplate(data));
+    $('#display-folder-index').html(
+      ("<span>" + fileStructureShowTemplate(data) +
+        "<button type=\"button\" class=\"btn btn-primary\" value=\"Upload\" id=\"upload\">Add Folder</button>" + "</span>"));
+
     // var newHTML = $('#display-folder-index').html();
     // newHTML = newHTML + "<button type='button' class='btn btn-info btn-xs addFolder hide aside'>Add Folder</button>";
     // $('#display-folder-index').html(newHTML);
