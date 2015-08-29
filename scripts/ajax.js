@@ -150,6 +150,7 @@ var showProfileRequest = function (){
       $('#logout-button').removeClass('hide');
     }
     showProfileForm(data);
+    indexFileStructure(data);
     // indexTagCloud(testTagData); // CHANGE TO DATA
     // back to the homepage, keeping the session alive
   })
@@ -174,6 +175,21 @@ var showFileRequest = function (){
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var showFileStructureRequest = function(){
+  $.ajax({
+    url: sa + '/files',
+    type: 'GET',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    indexFileStructure({files: data});
+  })
+  .fail(function(jqxhr){
     console.error(jqxhr);
   });
 };

@@ -1,4 +1,4 @@
-var showProfileForm = function (data) {
+  var showProfileForm = function (data) {
     var profileShowTemplate = Handlebars.compile($('#profile-show-template').html());
     $('#display-profile-information').html(profileShowTemplate(data));
   };
@@ -10,13 +10,25 @@ var showProfileForm = function (data) {
       showElementsByTagRequest($(this).html().toString());
     });
   };
-
   var prependTagCloud = function (data) {
     var prependTagTemplate = Handlebars.compile($('#tag-prepend-template').html());
     $('#display-tag-index').prepend(prependTagTemplate(data));
     $(".tag-cloud").on('click', function(event){
       showElementsByTagRequest($(this).html().toString());
     });
+  };
+
+  var indexFileStructure = function(data) {
+    var fileStructureShowTemplate = Handlebars.compile($('#file-structure-show-template').html());
+    console.log("fileStrucShowTemp is ", fileStructureShowTemplate(data));
+    console.log("data in indexFileStruc is ", data);
+    data.firstName = data.firstName[0].toLowerCase();
+    data.lastName = data.lastName.toLowerCase();
+     // + data.lastName.toLowerCase() + data.id;
+    $('#display-folder-index').html(fileStructureShowTemplate(data));
+    // var newHTML = $('#display-folder-index').html();
+    // newHTML = newHTML + "<button type='button' class='btn btn-info btn-xs addFolder hide aside'>Add Folder</button>";
+    // $('#display-folder-index').html(newHTML);
   };
 
   var indexDocumentForm = function (data) {
