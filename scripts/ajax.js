@@ -34,6 +34,11 @@ $.ajaxSetup({
     });
   });
 
+  $('#add-folder-button').on('click', function(e){
+    console.log("You clicked the add folder button.");
+    addFolderRequest();
+  });
+
 var registerUserRequest = function (){
   var registerData = {
     username: $('#register-email').val(),
@@ -382,7 +387,7 @@ var logoutUserRequest = function (){
 var addFolderRequest = function(){
   var folderData = {
     elementName: "something",   //something,
-    path: ",something,somethingelse",        //build from front end,
+    path: "/username/newFolder",        //build from front end,
     tagsArray: 'funny, work, max', //expect a string that we will split on commas ','
     description: 'My cool folder'
   };
@@ -394,7 +399,7 @@ var addFolderRequest = function(){
     data: JSON.stringify(folderData)
   })
   .done(function(data){
-    // back to the homepage, keeping the session alive
+    console.log("Made a new folder. Data returned is",data);
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
