@@ -388,7 +388,8 @@ var addFolderRequest = function(){
   var folderData = {
     elementName: "something",   //something,
     path: "/username/newFolder",        //build from front end,
-    tagsArray: 'funny, work, max', //expect a string that we will split on commas ','
+    tagsArray: [], //expect a string that we will split on commas ','
+    children: [],
     description: 'My cool folder'
   };
   $.ajax({

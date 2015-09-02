@@ -27,7 +27,7 @@
      console.log("fileStrucShowTemp is ", fileStructureShowTemplate(data));
     $('#display-folder-index').html(
       ("<span>" + fileStructureShowTemplate(data) +
-        "<button type=\"button\" class=\"btn btn-primary\" value=\"Upload\" id=\"upload\">Add Folder</button>" + "</span>"));
+        "<button type=\"button\" class=\"btn btn-primary\" value=\"addFolder\" id=\"add-folder-button\">Add Folder</button>" + "</span>"));
 
     // var newHTML = $('#display-folder-index').html();
     // newHTML = newHTML + "<button type='button' class='btn btn-info btn-xs addFolder hide aside'>Add Folder</button>";
