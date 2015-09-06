@@ -10,6 +10,7 @@
       showElementsByTagRequest($(this).html().toString());
     });
   };
+
   var prependTagCloud = function (data) {
     var prependTagTemplate = Handlebars.compile($('#tag-prepend-template').html());
     $('#display-tag-index').prepend(prependTagTemplate(data));
@@ -20,14 +21,11 @@
 
   var indexFileStructure = function(data) {
     var fileStructureShowTemplate = Handlebars.compile($('#file-structure-show-template').html());
-    console.log("data in indexFileStruc is ", data);
     data.firstName = data.firstName[0].toLowerCase();
     data.lastName = data.lastName.toLowerCase();
      // + data.lastName.toLowerCase() + data.id;
-     console.log("fileStrucShowTemp is ", fileStructureShowTemplate(data));
     $('#display-folder-index').html(
-      ("<span>" + fileStructureShowTemplate(data) +
-        "<button type=\"button\" class=\"btn btn-primary\" value=\"addFolder\" id=\"add-folder-button\">Add Folder</button>" + "</span>"));
+      ("<span>" + fileStructureShowTemplate(data) + "</span>"));
 
     // var newHTML = $('#display-folder-index').html();
     // newHTML = newHTML + "<button type='button' class='btn btn-info btn-xs addFolder hide aside'>Add Folder</button>";
@@ -48,6 +46,21 @@
       showFileRequest();
       showTagsRequest();
     });
+  };
+
+  var appendNewFolder = function(newFolder){
+    console.log("append New folder got called. newFolder is ", newFolder);
+    $("#folderPathId").append(newFolder);
+  };
+
+  var pushFolderToParent = function(newFolder){
+    // find parent.
+
+    // set found parent = parentFolder
+    var parentFolder = {};
+
+    // add newFolder to parent []
+    parentFolder.children.push(newFolder);
   };
 
   var prependDocumentForm = function (data) {

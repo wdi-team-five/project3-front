@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
   <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="node_modules/jquery.js"></script>
 </head>
 
 <!-- navbar -->
@@ -167,35 +168,28 @@
         <!-- end profile buttons left -->
         <div class="row">
           <!--  tag cloud left div -->
-          <div class="left col-md-6">
+          <div class="left col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title">Folder Structure</h3>
               </div>
-              <div id="display-folder-index" class="panel-body">
-                <span id="folderPathId">Home Folder</span>
-              </div> <!-- end panel body -->
-            </div>
-          </div>
-          <!-- end left tag -->
-          <div class="left col-md-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Add Folder</h3>
-              </div>
               <div class="panel-body">
-                <!-- AWS Upload Form -->
+                <div id="display-folder-index">
+                  <span id="homeFolder">Home Folder</span>
+                </div> <!-- end panel body -->
                 <form id="folder-add-form" enctype="multipart/form-data" accept-charset="utf-8">
                   <label for="path">Folder: </label>
-                  <input type="text" name="path" id="path" placeholder="Folder Path">
+                  <input type="text" name="newFolderName" id="newFolderName" placeholder="Folder Name">
                   <label for="parent">Parent: </label>
                   <input type="text" name="parent" id="parent" placeholder="File Caption">
-
-                  <!-- <button type="button" class="btn btn-primary" value="Upload" id="add-folder-button">Add Folder</button> -->
+                  <button type="button" class="btn btn-primary" value="Upload" id="add-folder-button">Add Folder</button>
                 </form>
-              </div> <!-- end panel body -->
+              </div>
             </div>
           </div>
+
+          <!-- end left tag -->
+
         </div> <!-- end row -->
 
         <div class="row">
@@ -229,7 +223,7 @@
       </script>
 
       <script id="file-structure-show-template" type="text/x-handlebars-template">
-        <h4> /{{firstName}}{{lastName}}{{id}}</h4>
+        <h4 id="folderPathId"> /{{firstName}}{{lastName}}{{id}}</h4>
       </script>
 
       <script id="tag-index-template" type="text/x-handlebars-template">

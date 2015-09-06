@@ -36,7 +36,9 @@ $.ajaxSetup({
 
   $('#add-folder-button').on('click', function(e){
     console.log("You clicked the add folder button.");
-    addFolderRequest();
+    var oldPath = $("#folderPathId").html();
+    var newFolder = "/" + $("#newFolderName").val();
+    addFolderRequest(oldPath, newFolder);
   });
 
 var registerUserRequest = function (){
@@ -384,14 +386,15 @@ var logoutUserRequest = function (){
   });
 };
 
-var addFolderRequest = function(){
+var addFolderRequest = function(oldPath, newFolder){
   var folderData = {
     elementName: "something",   //something,
-    path: "/username/newFolder",        //build from front end,
+    path: (oldPath + newFolder),
     tagsArray: [], //expect a string that we will split on commas ','
     children: [],
     description: 'My cool folder'
   };
+  console.log("fodler data is ", folderData);
   $.ajax({
     url: sa + '/createFolder/', // CLARIFY IT
     type: 'POST',
@@ -401,6 +404,8 @@ var addFolderRequest = function(){
   })
   .done(function(data){
     console.log("Made a new folder. Data returned is",data);
+    appendNewFolder(newFolder);
+    // pushFolderToParent(newFolder);
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);
