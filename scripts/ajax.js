@@ -34,6 +34,13 @@ $.ajaxSetup({
     });
   });
 
+  $('#add-folder-button').on('click', function(e){
+    console.log("You clicked the add folder button.");
+    var oldPath = $("#folderPathId").html();
+    var newFolder = "/" + $("#newFolderName").val();
+    addFolderRequest(oldPath, newFolder);
+  });
+
 var registerUserRequest = function (){
   var registerData = {
     username: $('#register-email').val(),
@@ -150,6 +157,7 @@ var showProfileRequest = function (){
       $('#logout-button').removeClass('hide');
     }
     showProfileForm(data);
+    indexFileStructure(data);
     // indexTagCloud(testTagData); // CHANGE TO DATA
     // back to the homepage, keeping the session alive
   })
@@ -174,6 +182,21 @@ var showFileRequest = function (){
     // back to the homepage, keeping the session alive
   })
   .fail(function(jqxhr) {
+    console.error(jqxhr);
+  });
+};
+
+var showFileStructureRequest = function(){
+  $.ajax({
+    url: sa + '/files',
+    type: 'GET',
+    contentType: 'application/json',
+    processData: false
+  })
+  .done(function(data){
+    indexFileStructure({files: data});
+  })
+  .fail(function(jqxhr){
     console.error(jqxhr);
   });
 };
@@ -363,13 +386,15 @@ var logoutUserRequest = function (){
   });
 };
 
-var addFolderRequest = function(){
+var addFolderRequest = function(oldPath, newFolder){
   var folderData = {
     elementName: "something",   //something,
-    path: ",something,somethingelse",        //build from front end,
-    tagsArray: 'funny, work, max', //expect a string that we will split on commas ','
+    path: (oldPath + newFolder),
+    tagsArray: [], //expect a string that we will split on commas ','
+    children: [],
     description: 'My cool folder'
   };
+  console.log("fodler data is ", folderData);
   $.ajax({
     url: sa + '/createFolder/', // CLARIFY IT
     type: 'POST',
@@ -378,7 +403,9 @@ var addFolderRequest = function(){
     data: JSON.stringify(folderData)
   })
   .done(function(data){
-    // back to the homepage, keeping the session alive
+    console.log("Made a new folder. Data returned is",data);
+    appendNewFolder(newFolder);
+    // pushFolderToParent(newFolder);
   })
   .fail(function(jqxhr) {
     console.error(jqxhr);

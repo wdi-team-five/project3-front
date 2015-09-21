@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
   <script type="text/javascript" src="./scripts/handlebars-v3.0.3.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="node_modules/jquery.js"></script>
 </head>
 
 <!-- navbar -->
@@ -80,7 +81,6 @@
 
     <!-- register modal -->
     <div id="register-modal" class="modal fade" tabindex="-1" role="dialog">
-
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -127,19 +127,19 @@
 
       <div class="row">
         <!-- profile information left div -->
-          <div class="left col-md-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Profile Information</h3>
-              </div>
-              <div id="display-profile-information" class="panel-body">
-                <!-- Profile Update -->
-                <button id="profile-update" type="button" class="btn btn-primary">Edit Profile</button>
-                <!-- Profile Delete -->
-                <button id="profile-delete" type="button" class="btn btn-primary">Delete Profile</button>
-              </div> <!-- end panel body -->
+        <div class="left col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Profile Information</h3>
             </div>
+            <div id="display-profile-information" class="panel-body">
+              <!-- Profile Update -->
+              <button id="profile-update" type="button" class="btn btn-primary">Edit Profile</button>
+              <!-- Profile Delete -->
+              <button id="profile-delete" type="button" class="btn btn-primary">Delete Profile</button>
+            </div> <!-- end panel body -->
           </div>
+        </div>
         <!-- end left profile info  -->
 
         <!--  profile buttons left div -->
@@ -151,47 +151,79 @@
             <div class="panel-body">
               <!-- AWS Upload Form -->
               <form id="upload-form" enctype="multipart/form-data" accept-charset="utf-8">
+                <label for="path">Folder: </label>
+                <input type="text" name="path" id="path" placeholder="Folder Path">
                 <label for="caption">Caption: </label>
                 <input type="text" name="caption" id="caption" placeholder="File Caption">
-                <label for="tag">Tag: </label>
-                <input type="text" name="tag" id="tag" placeholder="File Tag"
                 <br>
+                <label for="tag">Tag: </label>
+                <input type="text" name="tag" id="tag" placeholder="File Tag">
                 <input type="file" name="file" id="file"> <!-- center me -->
-                <br><button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
+                <br>
+                <button type="button" class="btn btn-primary" value="Upload" id="upload">Upload File</button>
               </form>
             </div> <!-- end panel body -->
           </div>
         </div>
         <!-- end profile buttons left -->
-
-      <div class="row">
-        <!--  tag cloud left div -->
-        <div class="left col-md-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Tag Cloud</h3>
+        <div class="row">
+          <!--  tag cloud left div -->
+          <div class="left col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Folder Structure</h3>
+              </div>
+              <div class="panel-body">
+                <div id="display-folder-index">
+                  <span id="homeFolder">Home Folder</span>
+                </div> <!-- end panel body -->
+                <form id="folder-add-form" enctype="multipart/form-data" accept-charset="utf-8">
+                  <label for="path">Folder: </label>
+                  <input type="text" name="newFolderName" id="newFolderName" placeholder="Folder Name">
+                  <label for="parent">Parent: </label>
+                  <input type="text" name="parent" id="parent" placeholder="File Caption">
+                  <button type="button" class="btn btn-primary" value="Upload" id="add-folder-button">Add Folder</button>
+                </form>
+              </div>
             </div>
-            <div id="display-tag-index" class="panel-body"></div> <!-- end panel body -->
           </div>
-        </div>
-        <!-- end left tag -->
 
-        <!-- document right sidebar -->
-        <div class="aside col-md-6">
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Document List</h3>
+          <!-- end left tag -->
+
+        </div> <!-- end row -->
+
+        <div class="row">
+          <!--  tag cloud left div -->
+          <div class="left col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Tag Cloud</h3>
+              </div>
+              <div id="display-tag-index" class="panel-body"></div> <!-- end panel body -->
             </div>
-            <div id="display-document-index" class="panel-body">
-            </div> <!-- end panel body -->
           </div>
-        </div>
-        <!-- end document sidebar -->
-      </div> <!-- end row -->
+          <!-- end left tag -->
+
+          <!-- document right sidebar -->
+          <div class="aside col-md-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Document List</h3>
+              </div>
+              <div id="display-document-index" class="panel-body">
+              </div> <!-- end panel body -->
+            </div>
+          </div>
+          <!-- end document sidebar -->
+        </div> <!-- end row -->
 
       <script id="profile-show-template" type="text/x-handlebars-template">
         <h4> {{firstName}} {{lastName}}</h4>
         <p>Company: {{companyName}}</p>
+      </script>
+
+      <script id="file-structure-show-template" type="text/x-handlebars-template">
+        <h4 id="folderPathId"> /{{firstName}}{{lastName}}{{id}}</h4>
       </script>
 
       <script id="tag-index-template" type="text/x-handlebars-template">
